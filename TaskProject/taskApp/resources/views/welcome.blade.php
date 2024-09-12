@@ -36,14 +36,17 @@
     </nav>
 
     <!-- Cover Image -->
-    <section class="bg-primary text-white text-center" style="background: url('cover-image.jpg') no-repeat center center; background-size: cover; height: 400px;">
-        <div class="container d-flex align-items-center justify-content-center" style="height: 100%;">
-            <div>
-                <h1 class="display-4">Welcome to CommUnity</h1>
-                <p class="lead">Connecting you with local volunteer opportunities.</p>
-            </div>
+    <section class="bg-primary text-white text-center" 
+         style="background: url('{{ asset('images/cover-image.jpg') }}') no-repeat center center; 
+                background-size: cover; height: 400px;">
+    <div class="container d-flex align-items-center justify-content-center" style="height: 100%;">
+        <div>
+            <h1 class="display-4">Welcome to CommUnity</h1>
+            <p class="lead">Connecting you with local volunteer opportunities.</p>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Main Content -->
     <main role="main">
