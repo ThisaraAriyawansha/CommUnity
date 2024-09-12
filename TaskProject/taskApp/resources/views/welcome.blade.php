@@ -20,30 +20,92 @@
             overflow-x: hidden;
         }
 
-        /* Transparent Navbar */
-        .navbar {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            background-color: rgba(255, 255, 255, 0); /* Semi-transparent */
-            backdrop-filter: blur(10px); /* Apple-like blur effect */
-            transition: background-color 0.3s ease-in-out;
-        }
-        .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.9); /* Solid background on scroll */
-        }
-        .navbar-brand, .nav-link {
-            color: #333;
-            font-size: 1.2rem;
-            transition: color 0.3s ease-in-out;
-        }
-        .navbar-brand:hover, .nav-link:hover {
-            color: #007aff; /* Apple blue hover effect */
-        }
-        .nav-link i {
-            margin-right: 8px; /* Space between icon and text */
-        }
+            .navbar {
+                position: fixed;
+                top: 0;
+                right: 0;
+                min-width: 100%;
+                padding: 10px 20px; /* Reduced padding */
+                display: flex;
+                background: rgba(0, 0, 0, 0); /* Fully transparent background */
+                color: white;
+                z-index: 1000; /* Ensure it is on top */
+                align-items: center; /* Center items vertically */
+            }
+
+            .navbar-brand a {
+                top: 0;
+                right: 100%;
+                justify-content: flex-start;
+                flex-grow: 4;
+                font-size: 24px; /* Reduced font size */
+                color: black;
+                text-decoration: none;
+                font-weight: bold;
+                font-family: 'Times New Roman', Times, serif; /* Using Times New Roman for the links */
+            }
+
+            .navbar-brand:hover {
+                transform: translateY(-3px); /* Subtle lift effect */
+            }
+
+            .navbar-links {
+
+                display: flex;
+                gap: 10px; /* Adjusted space between links */
+                justify-content: flex-end;
+                flex-grow: 1;
+                font-family: 'Times New Roman', Times, serif; /* Using Times New Roman for the links */
+            }
+
+            .navbar-links a {
+                position: relative;
+                color: black;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 1em; /* Reduced font size */
+                padding: 8px 15px; /* Reduced padding */
+                overflow: hidden; /* Hide the overflow to enable animation */
+                transition: color 0.3s ease; /* Smooth transition for text color */
+            }
+
+            .navbar-links a::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px; /* Reduced line height */
+                bottom: 0;
+                left: -100%;
+                background-color: #ffffff; /* White running line */
+                transition: left 0.8s ease; /* Smooth running line animation */
+            }
+
+            .navbar-links a:hover::before {
+                left: 0; /* Slide the line in */
+            }
+
+            .navbar-links a:hover {
+                color: #c0c0c0; /* Slightly lighter text color on hover */
+            }
+
+            @keyframes fadeScale {
+                0% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1.05);
+                    opacity: 0.9;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            .navbar-brand {
+                animation: fadeScale 3s ease-in-out infinite; /* Apply the subtle fade and scale animation */
+            }
 
         /* Fullscreen Background Image */
         .hero-section {
@@ -56,41 +118,73 @@
         }
 
         /* Hero Content */
-        .hero-content {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
-            padding: 2rem;
-            border-radius: 15px;
-            animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
-        }
-        .hero-content h1 {
-            font-size: 4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-            animation: fadeInUp 2s ease-in-out;
-        }
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #f5f5f7;
-            animation: fadeInUp 2s ease-in-out;
-        }
-        .hero-content a {
-            padding: 12px 36px;
-            background-color: #007aff; /* Apple blue */
-            border-radius: 25px;
-            color: white;
-            font-size: 1.2rem;
-            text-decoration: none;
-            box-shadow: 0 8px 15px rgba(0, 122, 255, 0.4);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeInUp 2.5s ease-in-out;
-        }
-        .hero-content a:hover {
-            background-color: #005bbb;
-            box-shadow: 0 12px 20px rgba(0, 122, 255, 0.6);
-        }
+  /* Hero Section */
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.hero-section h1 {
+    font-family: 'Times New Roman', Times, serif;
+
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: slideInDown 1s ease-in-out;
+}
+
+@keyframes slideInDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.hero-section p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    animation: slideInUp 1s ease-in-out;
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.cta-button1 {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    color: #ffffff;
+    padding: 2px 30px; /* Increased padding for better look */
+    text-decoration: none !important; /* Ensure no underline */
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: 2px solid #ffffff;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.cta-button1:hover {
+    text-decoration: none !important; /* Ensure no underline */
+    color: #ffffff;
+
+    background-color: rgba(255, 255, 255, 0.4); /* Slightly more opaque on hover */
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+
 
         /* Feature Section */
         .features {
@@ -140,25 +234,37 @@
         /* Testimonials Section */
         .testimonials {
             background-color: #f5f5f7;
-            padding: 4rem 0;
+            padding: 4rem 2rem; /* Increased padding */
             text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
         }
+
         .testimonials h2 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: 2rem;
             color: #333;
         }
+
         .testimonial {
             padding: 2rem;
             font-size: 1.2rem;
             color: #555;
-            animation: fadeInUp 2s ease-in-out;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
         .testimonial p {
             font-style: italic;
         }
+
 
         /* Footer */
         footer {
@@ -172,41 +278,27 @@
 </head>
 <body>
 
-    <!-- Transparent Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-globe"></i> CommUnity</a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-hand-holding-heart"></i> Opportunities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact Us</a>
-                    </li>
-                </ul>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a href="index.html"><i class="fas fa-users"></i> CommUnity</a>
             </div>
-        </div>
-    </nav>
+            <div class="navbar-links">
+            <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+            <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About Us</a>
+            <a class="nav-link" href="#"><i class="fas fa-hand-holding-heart"></i> Opportunities</a>
+            <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Hero Section with Background Image -->
-    <section class="hero-section">
-        <div class="hero-content">
+
+    <section class="hero-section" style="background-image: url('images/cover-image.jpg');">
             <h1>Welcome to CommUnity</h1>
             <p>Bringing people together to create a better Sri Lanka.</p>
-            <a href="#">Get Involved</a>
-        </div>
+            <a href="#" class="cta-button1">Get Involved</a>
     </section>
+
 
     <!-- Features Section -->
     <section class="features">
@@ -248,14 +340,14 @@
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial">
-                        <p>"The flexibility and range of opportunities offered here allowed me to balance volunteering with my personal life."</p>
-                        <small>- Ravi K.</small>
+                        <p>"The opportunities provided by CommUnity were flexible and aligned with my interests. It's a great platform for getting involved."</p>
+                        <small>- Priya M.</small>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial">
-                        <p>"I love the community spirit and the impactful projects. CommUnity truly makes a difference in Sri Lanka."</p>
-                        <small>- Nisha W.</small>
+                        <p>"I love how CommUnity connects volunteers with projects that have a real impact. It’s fulfilling to see the difference we make."</p>
+                        <small>- Rajesh K.</small>
                     </div>
                 </div>
             </div>
