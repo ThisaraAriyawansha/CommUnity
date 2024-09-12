@@ -1,0 +1,98 @@
+/* public/css/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header.hero {
+    background: url('/images/hero-bg.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+header.hero .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+header.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+header.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+header.hero .btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+header.hero .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+section.features {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+}
+
+section.features .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section.features h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+section.features .feature {
+    text-align: center;
+    margin: 20px 0;
+}
+
+section.features .feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+section.features .feature p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+section.features .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+section.features .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+footer.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}

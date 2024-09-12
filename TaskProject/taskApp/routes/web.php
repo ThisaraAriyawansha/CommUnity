@@ -11,7 +11,7 @@ Route::get('/tasks', [PageController::class, 'indextask']);
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 
