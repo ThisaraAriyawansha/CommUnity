@@ -39,7 +39,7 @@
                 justify-content: flex-start;
                 flex-grow: 4;
                 font-size: 24px; /* Reduced font size */
-                color: black;
+                color: white;
                 text-decoration: none;
                 font-weight: bold;
                 font-family: 'Times New Roman', Times, serif; /* Using Times New Roman for the links */
@@ -60,7 +60,7 @@
 
             .navbar-links a {
                 position: relative;
-                color: black;
+                color: white;
                 text-decoration: none;
                 font-weight: bold;
                 font-size: 1em; /* Reduced font size */
@@ -108,8 +108,8 @@
             }
 
             .hero-section {
-    background: linear-gradient(to bottom right, #2c3e50, #34495e); /* Dark gradient colors */
-    background-size: cover; /* Ensure the background covers the entire section */
+                background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17); /* Smooth transition from dark blue to navy blue and deep black */
+                background-size: cover; /* Ensure the background covers the entire section */
     background-position: center center; /* Center the background */
     background-repeat: no-repeat; /* Prevent repeating */
     height: 100vh; /* Full viewport height */
@@ -290,6 +290,19 @@
             <h1>Welcome to CommUnity</h1>
             <p>Bringing people together to create a better Sri Lanka.</p>
             <a href="#" class="cta-button1">Get Involved</a>
+    </section>
+
+
+
+
+    <section class="hero">
+             <h1>Welcome to CommUnity</h1>
+            <p>Bringing people together to create a better Sri Lanka.</p>
+            <a href="#" class="cta-button1">Get Involved</a>
+        </div>
+        <div class="hero-image">
+            <img src="your-image-url-here" alt="App Preview">
+        </div>
     </section>
 
 
