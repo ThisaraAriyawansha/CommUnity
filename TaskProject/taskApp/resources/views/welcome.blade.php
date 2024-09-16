@@ -107,22 +107,12 @@
                 animation: fadeScale 3s ease-in-out infinite; /* Apply the subtle fade and scale animation */
             }
 
-        /* Fullscreen Background Image */
-        .hero-section {
-            background: url('{{ asset('images/cover-image.jpg') }}') no-repeat center center/cover;
-            height: 100vh; /* Fullscreen */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-
-        /* Hero Content */
-  /* Hero Section */
-.hero-section {
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+            .hero-section {
+    background: linear-gradient(to bottom right, #2c3e50, #34495e); /* Dark gradient colors */
+    background-size: cover; /* Ensure the background covers the entire section */
+    background-position: center center; /* Center the background */
+    background-repeat: no-repeat; /* Prevent repeating */
+    height: 100vh; /* Full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,6 +122,9 @@
     padding: 0 20px;
     animation: fadeIn 2s ease-in-out;
 }
+
+
+
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -293,7 +286,7 @@
     </header>
 
 
-    <section class="hero-section" style="background-image: url('images/cover-image.jpg');">
+    <section class="hero-section" >
             <h1>Welcome to CommUnity</h1>
             <p>Bringing people together to create a better Sri Lanka.</p>
             <a href="#" class="cta-button1">Get Involved</a>
@@ -365,13 +358,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
     <script>
-        // Change navbar background on scroll
-        window.addEventListener('scroll', function() {
+              // Change navbar background on scroll
+              window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Darken the navbar when scrolled
             } else {
-                navbar.classList.remove('scrolled');
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0)'; // Transparent when at top
             }
         });
     </script>
