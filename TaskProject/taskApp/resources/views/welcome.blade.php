@@ -191,7 +191,7 @@
             padding: 4rem 0;
             text-align: center;
             animation: fadeIn 1.5s ease-in-out;
-        }
+             }
         .features h2 {
             font-size: 3rem;
             font-weight: 600;
