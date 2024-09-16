@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'CommUnity')</title>
-    
+    <title>CommUnity</title>
+
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,183 +16,157 @@
         body, html {
             height: 100%;
             margin: 0;
-            font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            overflow-x: hidden;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17); /* Smooth transition from dark blue to navy blue and deep black */
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
             color: white;
-            min-height: 100vh;
-                }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            background: rgba(0, 0, 0, 0);
+            color: white;
+            z-index: 1000;
+            align-items: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .navbar-brand a {
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            flex-grow: 1;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .navbar-links a {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 8px 15px;
+            overflow: hidden;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: -100%;
+            background-color: #ffffff;
+            transition: left 0.8s ease;
+        }
+
+        .navbar-links a:hover::before {
+            left: 0;
+        }
+
+        .navbar-links a:hover {
+            color: #c0c0c0;
+        }
+
+        /* Hero Section */
+        .heroo {
+            min-height: 750px;
+            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            height: calc(100vh - 100px);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero-text {
+            max-width: 50%;
+            animation: slideInLeft 2s ease-in-out;
+        }
+
+        @keyframes slideInLeft {
+            0% { transform: translateX(-100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        .hero-text h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .hero-text button {
+            padding: 15px 30px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
 
 
 
-                    * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            .navbar {
-                position: fixed;
-                top: 0;
-                right: 0;
-                min-width: 100%;
-                padding: 10px 20px; /* Reduced padding */
-                display: flex;
-                background: rgba(0, 0, 0, 0); /* Fully transparent background */
-                color: white;
-                z-index: 1000; /* Ensure it is on top */
-                align-items: center; /* Center items vertically */
-            }
-
-            .navbar-brand a {
-                top: 0;
-                right: 100%;
-                justify-content: flex-start;
-                flex-grow: 4;
-                font-size: 24px; /* Reduced font size */
-                color: white;
-                text-decoration: none;
-                font-weight: bold;
-                font-family: 'Times New Roman', Times, serif; /* Using Times New Roman for the links */
-            }
-
-            .navbar-brand:hover {
-                transform: translateY(-3px); /* Subtle lift effect */
-            }
-
-            .navbar-links {
-
-                display: flex;
-                gap: 10px; /* Adjusted space between links */
-                justify-content: flex-end;
-                flex-grow: 1;
-                font-family: 'Times New Roman', Times, serif; /* Using Times New Roman for the links */
-            }
-
-            .navbar-links a {
-                position: relative;
-                color: white;
-                text-decoration: none;
-                font-weight: bold;
-                font-size: 1em; /* Reduced font size */
-                padding: 8px 15px; /* Reduced padding */
-                overflow: hidden; /* Hide the overflow to enable animation */
-                transition: color 0.3s ease; /* Smooth transition for text color */
-            }
-
-            .navbar-links a::before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 2px; /* Reduced line height */
-                bottom: 0;
-                left: -100%;
-                background-color: #ffffff; /* White running line */
-                transition: left 0.8s ease; /* Smooth running line animation */
-            }
-
-            .navbar-links a:hover::before {
-                left: 0; /* Slide the line in */
-            }
-
-            .navbar-links a:hover {
-                color: #c0c0c0; /* Slightly lighter text color on hover */
-            }
-
-            @keyframes fadeScale {
-                0% {
-                    transform: scale(1);
-                    opacity: 1;
-                }
-                50% {
-                    transform: scale(1.05);
-                    opacity: 0.9;
-                }
-                100% {
-                    transform: scale(1);
-                    opacity: 1;
-                }
-            }
-
-            .navbar-brand {
-                animation: fadeScale 3s ease-in-out infinite; /* Apply the subtle fade and scale animation */
-            }
-
-            .hero-section {
-                background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17); /* Smooth transition from dark blue to navy blue and deep black */
-                background-size: cover; /* Ensure the background covers the entire section */
-                background-position: center center; /* Center the background */
-                background-repeat: no-repeat; /* Prevent repeating */
-                height: 100vh; /* Full viewport height */
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                color: white;
-                text-align: center;
-                padding: 0 20px;
-                animation: fadeIn 2s ease-in-out;
-            }
 
 
+  
+        }
+
+        .hero-text button:hover {
+            background-color: rgba(255, 255, 255, 0.4); /* Slightly more opaque on hover */
+            transform: translateY(-3px); /* Subtle lift effect */
+        }
+
+        /* Image Animation */
+        #myImage {
+            width: 430px;
+            height: 430px;
+            animation: zoomIn 2s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Scrolling Background Change */
+        .navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.hero-section h1 {
-    font-family: 'Times New Roman', Times, serif;
-
-    font-size: 3em;
-    margin-bottom: 20px;
-    animation: slideInDown 1s ease-in-out;
-}
-
-@keyframes slideInDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.hero-section p {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5em;
-    margin-bottom: 40px;
-    animation: slideInUp 1s ease-in-out;
-}
-
-@keyframes slideInUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.cta-button1 {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
-    color: #ffffff;
-    padding: 2px 30px; /* Increased padding for better look */
-    text-decoration: none !important; /* Ensure no underline */
-    border-radius: 50px;
-    font-size: 1.2em;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    border: 2px solid #ffffff;
-    transition: background-color 0.3s, transform 0.3s;
-    display: inline-block;
-}
-
-.cta-button1:hover {
-    text-decoration: none !important; /* Ensure no underline */
-    color: #ffffff;
-
-    background-color: rgba(255, 255, 255, 0.4); /* Slightly more opaque on hover */
-    transform: translateY(-3px); /* Subtle lift effect */
-}
-
-
-
-        /* Feature Section */
-        .features {
+           /* Feature Section */
+           .features {
             background-color: white; /* Semi-transparent white */
             padding: 4rem 0;
             text-align: center;
@@ -280,95 +254,33 @@
             text-align: center;
             animation: fadeIn 1.5s ease-in-out;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-.heroo {
-    min-height:750px;
-    background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17); /* Smooth transition from dark blue to navy blue and deep black */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    height: calc(100vh - 100px);
-}
-
-.hero-text {
-    max-width: 50%;
-}
-
-.hero-text h1 {
-    font-size: 64px;
-    margin-bottom: 20px;
-}
-
-.hero-text p {
-    font-size: 24px;
-    margin-bottom: 30px;
-}
-
-.hero-text button {
-    padding: 15px 30px;
-    background-color: #ff0080;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.hero-image img {
-    max-width: 300px;
-    transform: rotate(10deg);
-}
-
-
     </style>
 </head>
 <body>
 
+    <!-- Navbar -->
     <header>
         <nav class="navbar">
             <div class="navbar-brand">
                 <a href="index.html"><i class="fas fa-users"></i> CommUnity</a>
             </div>
             <div class="navbar-links">
-            <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
-            <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About Us</a>
-            <a class="nav-link" href="#"><i class="fas fa-hand-holding-heart"></i> Opportunities</a>
-            <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+                <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About Us</a>
+                <a class="nav-link" href="#"><i class="fas fa-hand-holding-heart"></i> Opportunities</a>
+                <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact Us</a>
             </div>
         </nav>
     </header>
 
-<!--
-    <section class="hero-section" >
-            <h1>Welcome to CommUnity</h1>
-            <p>Bringing people together to create a better Sri Lanka.</p>
-            <a href="#" class="cta-button1">Get Involved</a>
-    </section>
-
-    -->
-
-
+    <!-- Hero Section -->
     <section class="heroo">
         <div class="hero-text">
             <h1>Welcome to CommUnity</h1>
             <p>Bringing people together to create a better Sri Lanka.</p>
-            <a href="#" class="cta-button1">Get Involved</a>
+            <button class="cta-button1">Get Involved</button>
         </div>
-        <div class="hero-image">
-            <img src="your-image-url-here" alt="App Preview">
-        </div>
+        <img id="myImage" src="images/together-people-love-icon-logo-community-black-circle-white-design-vector-removebg.png" alt="Placeholder Image">
     </section>
 
 
@@ -431,19 +343,22 @@
         <p>&copy; 2024 CommUnity. All rights reserved.</p>
     </footer>
 
-    <!-- jQuery and Bootstrap JS -->
+
+
+
+    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
+    <!-- Navbar Scroll Animation -->
     <script>
-              // Change navbar background on scroll
-              window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', function () {
+            var navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Darken the navbar when scrolled
+                navbar.classList.add('scrolled');
             } else {
-                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0)'; // Transparent when at top
+                navbar.classList.remove('scrolled');
             }
         });
     </script>
