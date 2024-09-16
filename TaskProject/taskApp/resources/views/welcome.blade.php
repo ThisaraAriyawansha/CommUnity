@@ -18,7 +18,19 @@
             margin: 0;
             font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             overflow-x: hidden;
-        }
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17); /* Smooth transition from dark blue to navy blue and deep black */
+            color: white;
+            min-height: 100vh;
+                }
+
+
+
+                    * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
             .navbar {
                 position: fixed;
@@ -110,18 +122,18 @@
             .hero-section {
                 background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17); /* Smooth transition from dark blue to navy blue and deep black */
                 background-size: cover; /* Ensure the background covers the entire section */
-    background-position: center center; /* Center the background */
-    background-repeat: no-repeat; /* Prevent repeating */
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 0 20px;
-    animation: fadeIn 2s ease-in-out;
-}
+                background-position: center center; /* Center the background */
+                background-repeat: no-repeat; /* Prevent repeating */
+                height: 100vh; /* Full viewport height */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                text-align: center;
+                padding: 0 20px;
+                animation: fadeIn 2s ease-in-out;
+            }
 
 
 
@@ -181,6 +193,7 @@
 
         /* Feature Section */
         .features {
+            background-color: white; /* Semi-transparent white */
             padding: 4rem 0;
             text-align: center;
             animation: fadeIn 1.5s ease-in-out;
@@ -267,6 +280,58 @@
             text-align: center;
             animation: fadeIn 1.5s ease-in-out;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+.heroo {
+    min-height:750px;
+    background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17); /* Smooth transition from dark blue to navy blue and deep black */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    height: calc(100vh - 100px);
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.hero-text button {
+    padding: 15px 30px;
+    background-color: #ff0080;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hero-image img {
+    max-width: 300px;
+    transform: rotate(10deg);
+}
+
+
     </style>
 </head>
 <body>
@@ -285,18 +350,19 @@
         </nav>
     </header>
 
-
+<!--
     <section class="hero-section" >
             <h1>Welcome to CommUnity</h1>
             <p>Bringing people together to create a better Sri Lanka.</p>
             <a href="#" class="cta-button1">Get Involved</a>
     </section>
 
+    -->
 
 
-
-    <section class="hero">
-             <h1>Welcome to CommUnity</h1>
+    <section class="heroo">
+        <div class="hero-text">
+            <h1>Welcome to CommUnity</h1>
             <p>Bringing people together to create a better Sri Lanka.</p>
             <a href="#" class="cta-button1">Get Involved</a>
         </div>
