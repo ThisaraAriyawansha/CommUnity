@@ -254,6 +254,37 @@
             text-align: center;
             animation: fadeIn 1.5s ease-in-out;
         }
+
+
+
+        /* Company Overview Section */
+.company-overview {
+    background-color: #f5f5f7; /* Light background to differentiate */
+    padding: 4rem 0;
+    text-align: left;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.company-overview h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+}
+
+.company-overview img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.company-overview p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
     </style>
 </head>
 <body>
@@ -262,10 +293,10 @@
     <header>
         <nav class="navbar">
             <div class="navbar-brand">
-                <a href="index.html"><i class="fas fa-users"></i> CommUnity</a>
+                <a href="/"><i class="fas fa-users"></i> CommUnity</a>
             </div>
             <div class="navbar-links">
-                <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+                <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
                 <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About Us</a>
                 <a class="nav-link" href="#"><i class="fas fa-hand-holding-heart"></i> Opportunities</a>
                 <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact Us</a>
@@ -310,6 +341,35 @@
             </div>
         </div>
     </section>
+
+
+<!-- Company Overview Section -->
+<section class="company-overview">
+    <div class="container">
+        <h2>About CommUnity</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="images/cover-image - Copy.jpg" alt="Company Overview" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+                <p>
+                    At CommUnity, we believe in fostering a strong sense of togetherness by creating opportunities 
+                    for volunteers to collaborate on impactful projects that make a difference in society. Our goal 
+                    is to bridge the gap between individuals and meaningful causes that improve local communities.
+                </p>
+                <p>
+                    Founded in 2022, we have worked with thousands of volunteers who have contributed to various 
+                    initiatives, from education to environmental conservation. We are driven by the desire to create 
+                    a better tomorrow by uniting people for a common purpose.
+                </p>
+                <p>
+                    Join us and become part of a movement that empowers people to do more and be more for their communities.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Testimonials Section -->
     <section class="testimonials">
