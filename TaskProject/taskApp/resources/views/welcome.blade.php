@@ -133,13 +133,7 @@
             font-size: 18px;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-
-
-
-
-
-  
+            transition: background-color 0.3s ease, transform 0.3s ease;  
         }
 
         .hero-text button:hover {
@@ -257,33 +251,129 @@
 
 
 
-        /* Company Overview Section */
+ /* Company Overview Section */
 .company-overview {
-    background-color: #f5f5f7; /* Light background to differentiate */
+    background-color: #f5f5f7;
     padding: 4rem 0;
+    display: flex;
+    flex-direction: row; /* Side-by-side layout */
+    justify-content: space-around;
+    align-items: center;
+    animation: fadeIn 1.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.company-overview-text {
+    width: 45%;
     text-align: left;
-    animation: fadeIn 2s ease-in-out;
+    animation: fadeSlideLeft 2s ease forwards; /* Sliding in from the left */
+}
+
+.company-overview-image {
+    width: 45%;
+    text-align: center;
+    animation: fadeSlideRight 2s ease forwards; /* Sliding in from the right */
 }
 
 .company-overview h2 {
     font-size: 3rem;
     font-weight: 600;
     margin-bottom: 2rem;
-    text-align: center;
     color: #333;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: rotateSlideIn 1.5s ease forwards;
+}
+
+.company-overview p {
+    font-size: 1.3rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 2s ease forwards 1s; /* Staggered motion */
 }
 
 .company-overview img {
     max-width: 100%;
     height: auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(0.85) rotate(-5deg); /* Enlarged with rotation */
+    opacity: 0;
+    animation: zoomRotate 2.5s ease forwards;
+    transition: transform 0.4s ease-in-out;
 }
 
-.company-overview p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 1rem;
+.company-overview img:hover {
+    transform: scale(0.95) rotate(5deg); /* Rotate on hover for dynamic effect */
 }
+
+/* Animations */
+@keyframes fadeSlideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeSlideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotateSlideIn {
+    0% {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes zoomRotate {
+    0% {
+        opacity: 0;
+        transform: scale(0.75) rotate(-15deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Effect for the Entire Section */
+.company-overview:hover {
+    transform: scale(1.03);
+}
+
 
     </style>
 </head>
