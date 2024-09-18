@@ -376,12 +376,12 @@
 
 
 
-/* Dark Theme for Events Section */
+/* Light Theme for Events Section */
 .events {
-    background-color: #1c1c1e; /* Darker background for a sleek look */
+    background-color: #f9f9f9; /* Light background for a clean look */
     padding: 4rem 0;
     text-align: center;
-    color: #f2f2f7; /* Light text for readability */
+    color: #333; /* Dark text for contrast */
     font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif;
 }
 
@@ -389,52 +389,53 @@
     font-size: 3rem;
     font-weight: 600;
     margin-bottom: 2.5rem;
-    color: #f2f2f7; /* Light title */
+    color: #1d1d1f; /* Darker title for contrast */
     font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 .event {
-    background-color: #2c2c2e; /* Dark event card background */
-    border-radius: 20px; /* More rounded corners for Apple feel */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Softer shadow with depth */
+    background-color: #ffffff; /* White event card background for minimalism */
+    border-radius: 16px; /* Softer rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for a subtle effect */
     margin-bottom: 2rem;
     overflow: hidden;
+    border: 1px solid #005bbb; /* Dark blue borders */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .event:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6); /* Stronger hover shadow */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 91, 187, 0.3); /* Dark blue shadow on hover */
 }
 
 .event img {
     width: 100%;
     height: auto;
-    border-bottom: 4px solid #0a84ff; /* Apple-style blue accent */
+    border-bottom: 3px solid #005bbb; /* Dark blue accent line */
     transition: transform 0.3s ease, opacity 0.3s ease;
-    border-radius: 20px 20px 0 0; /* Rounded corners on top */
+    border-radius: 16px 16px 0 0;
 }
 
 .event:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
     opacity: 0.95;
 }
 
 .event-details {
-    padding: 25px;
+    padding: 20px;
 }
 
 .event-details h3 {
     font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #0a84ff; /* Accent blue color */
+    margin-bottom: 8px;
+    color: #005bbb; /* Dark blue accent color */
     font-weight: 500;
     font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
 }
 
 .event-details p {
     font-size: 1.2rem;
-    color: #e5e5e7; /* Light gray for description text */
+    color: #333; /* Dark text for readability */
     font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
 }
@@ -450,33 +451,118 @@
 .event-details ul li {
     font-size: 1.1rem;
     margin: 6px 0;
-    color: #f2f2f7; /* Light color for event details */
+    color: #555; /* Medium dark for subtle details */
 }
 
 .participation-message {
     font-size: 1.1rem;
     margin-top: 1rem;
-    color: #0a84ff; /* Accent message */
+    color: #005bbb; /* Accent message color */
     font-style: italic;
 }
 
 .participate-btn {
     margin-top: 15px;
     padding: 12px 24px;
-    background-color: #007aff; /* Apple blue */
+    background: linear-gradient(135deg, #007aff, #0056b3); /* Modern gradient */
     color: white;
     border: none;
-    border-radius: 12px; /* Rounded buttons */
+    border-radius: 8px; /* Rounded buttons for a soft feel */
     cursor: pointer;
     font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
     font-size: 1.1rem;
     transition: background 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(10, 132, 255, 0.4); /* Soft shadow */
+    box-shadow: 0 4px 12px rgba(255, 149, 0, 0.4); /* Soft shadow for depth */
 }
 
 .participate-btn:hover {
-    background-color: #005bbb; /* Darker blue on hover */
-    box-shadow: 0 6px 16px rgba(10, 132, 255, 0.6); /* Stronger hover shadow */
+    background: linear-gradient(135deg, #0056b3, #003a80); /* Darker gradient on hover */
+    box-shadow: 0 6px 16px rgba(0, 122, 255, 0.3); /* Slightly stronger shadow */
+}
+
+
+/* Styles for Our Events Section */
+.events-section {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+}
+
+.events-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.events-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.events-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.event-item {
+    flex: 1 1 30%;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.event-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.event-item p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.photo-album {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.album-navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.nav-btn {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.nav-btn:hover {
+    background-color: #0056b3;
+}
+
+.album-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.album-image {
+    max-width: 100%;
+    height: auto;
+    margin: 0 5px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    display: block;
 }
 
 
@@ -573,21 +659,7 @@
     <div class="container">
         <h2>Our Upcoming Events</h2>
         <div class="row">
-            <div class="col-md-4">
-                <div class="event">
-                    <img src="images/Community Cleanup Drive.jpg" alt="Community Cleanup Drive" class="event-image">
-                    <div class="event-details">
-                        <h3>Community Cleanup Drive</h3>
-                        <p>Join us in cleaning up our neighborhood to create a better environment.</p>
-                        <ul>
-                            <li><strong>Location:</strong> Colombo Central Park</li>
-                            <li><strong>Date & Time:</strong> 20th September, 9:00 AM - 12:00 PM</li>
-                            <li><strong>Bring:</strong> Gloves, Trash Bags, Water Bottle</li>
-                        </ul>
-                        <button class="participate-btn">"Together, We Build a Beautiful Earth!"</button>
-                    </div>
-                </div>
-            </div>
+
             <div class="col-md-4">
                 <div class="event">
                     <img src="images/Tree Planting Day.png" alt="Tree Planting Day" class="event-image">
@@ -600,6 +672,21 @@
                             <li><strong>Bring:</strong> Shovel, Seedlings, Water Bottle</li>
                         </ul>
                         <button class="participate-btn">"Join Hands to Help and Beautify Our Planet!"</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="event">
+                    <img src="images/Community Cleanup Drive.jpg" alt="Community Cleanup Drive" class="event-image">
+                    <div class="event-details">
+                        <h3>Community Cleanup Drive</h3>
+                        <p>Join us in cleaning up our neighborhood to create a better environment.</p>
+                        <ul>
+                            <li><strong>Location:</strong> Colombo Central Park</li>
+                            <li><strong>Date & Time:</strong> 20th September, 9:00 AM - 12:00 PM</li>
+                            <li><strong>Bring:</strong> Gloves, Trash Bags, Water Bottle</li>
+                        </ul>
+                        <button class="participate-btn">"Together, We Build a Beautiful Earth!"</button>
                     </div>
                 </div>
             </div>
@@ -623,6 +710,73 @@
 </section>
 
 
+<!-- Our Events Section -->
+<section class="events-section">
+    <div class="events-container">
+        <h2>We Did It!</h2>
+        <div class="events-row">
+            <!-- Event 1: Tree Planting Day -->
+            <div class="event-item">
+                <h3>Tree Planting Day</h3>
+                <p>Here's a glimpse of our successful Tree Planting Day event. Thanks to all the volunteers!</p>
+                
+                <div class="photo-album">
+                    <div class="album-navigation">
+                        <button class="nav-btn" data-target="tree-planting-prev">&lt;</button>
+                        <button class="nav-btn" data-target="tree-planting-next">&gt;</button>
+                    </div>
+                    <div class="album-images" id="tree-planting-album">
+                        <img src="images/TreePlanting1.jpg" alt="Tree Planting Day 1" class="album-image">
+                        <img src="images/TreePlanting2.jpg" alt="Tree Planting Day 2" class="album-image">
+                        <img src="images/TreePlanting3.jpg" alt="Tree Planting Day 3" class="album-image">
+                        <img src="images/TreePlanting4.jpg" alt="Tree Planting Day 4" class="album-image">
+                        <img src="images/TreePlanting5.jpg" alt="Tree Planting Day 5" class="album-image">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 2: Beach Cleanup Drive -->
+            <div class="event-item">
+                <h3>Beach Cleanup Drive</h3>
+                <p>Our Beach Cleanup Drive was a big success. Thanks to everyone who came out to help keep our beaches clean!</p>
+                
+                <div class="photo-album">
+                    <div class="album-navigation">
+                        <button class="nav-btn" data-target="beach-cleanup-prev">&lt;</button>
+                        <button class="nav-btn" data-target="beach-cleanup-next">&gt;</button>
+                    </div>
+                    <div class="album-images" id="beach-cleanup-album">
+                        <img src="images/BeachCleanup1.jpg" alt="Beach Cleanup Day 1" class="album-image">
+                        <img src="images/BeachCleanup2.jpg" alt="Beach Cleanup Day 2" class="album-image">
+                        <img src="images/BeachCleanup3.jpg" alt="Beach Cleanup Day 3" class="album-image">
+                        <img src="images/BeachCleanup4.jpg" alt="Beach Cleanup Day 4" class="album-image">
+                        <img src="images/BeachCleanup5.jpg" alt="Beach Cleanup Day 5" class="album-image">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 3: Blood Donation Drive -->
+            <div class="event-item">
+                <h3>Blood Donation Drive</h3>
+                <p>Our Blood Donation Drive was a great success, helping many people in need. Thank you to all donors!</p>
+                
+                <div class="photo-album">
+                    <div class="album-navigation">
+                        <button class="nav-btn" data-target="blood-donation-prev">&lt;</button>
+                        <button class="nav-btn" data-target="blood-donation-next">&gt;</button>
+                    </div>
+                    <div class="album-images" id="blood-donation-album">
+                        <img src="images/BloodDonation1.jpg" alt="Blood Donation Day 1" class="album-image">
+                        <img src="images/BloodDonation2.jpg" alt="Blood Donation Day 2" class="album-image">
+                        <img src="images/BloodDonation3.jpg" alt="Blood Donation Day 3" class="album-image">
+                        <img src="images/BloodDonation4.jpg" alt="Blood Donation Day 4" class="album-image">
+                        <img src="images/BloodDonation5.jpg" alt="Blood Donation Day 5" class="album-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
     <!-- Testimonials Section -->
@@ -675,6 +829,48 @@
                 navbar.classList.remove('scrolled');
             }
         });
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+    const albums = {
+        'tree-planting': document.getElementById('tree-planting-album'),
+        'beach-cleanup': document.getElementById('beach-cleanup-album'),
+        'blood-donation': document.getElementById('blood-donation-album')
+    };
+
+    function setupAlbumNavigation(albumId) {
+        const album = albums[albumId];
+        const images = album.querySelectorAll('.album-image');
+        const totalImages = images.length;
+        let currentIndex = 0;
+
+        const updateImageDisplay = () => {
+            images.forEach((img, index) => {
+                img.style.display = index === currentIndex ? 'block' : 'none';
+            });
+        };
+
+        document.querySelector(`[data-target="${albumId}-prev"]`).addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateImageDisplay();
+        });
+
+        document.querySelector(`[data-target="${albumId}-next"]`).addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateImageDisplay();
+        });
+
+        // Initialize with the first image
+        updateImageDisplay();
+    }
+
+    // Initialize navigation for all albums
+    setupAlbumNavigation('tree-planting');
+    setupAlbumNavigation('beach-cleanup');
+    setupAlbumNavigation('blood-donation');
+});
     </script>
 </body>
 </html>
