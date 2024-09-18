@@ -375,6 +375,112 @@
 }
 
 
+
+/* Dark Theme for Events Section */
+.events {
+    background-color: #1c1c1e; /* Darker background for a sleek look */
+    padding: 4rem 0;
+    text-align: center;
+    color: #f2f2f7; /* Light text for readability */
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.events h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    color: #f2f2f7; /* Light title */
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.event {
+    background-color: #2c2c2e; /* Dark event card background */
+    border-radius: 20px; /* More rounded corners for Apple feel */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Softer shadow with depth */
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6); /* Stronger hover shadow */
+}
+
+.event img {
+    width: 100%;
+    height: auto;
+    border-bottom: 4px solid #0a84ff; /* Apple-style blue accent */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 20px 20px 0 0; /* Rounded corners on top */
+}
+
+.event:hover img {
+    transform: scale(1.05);
+    opacity: 0.95;
+}
+
+.event-details {
+    padding: 25px;
+}
+
+.event-details h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #0a84ff; /* Accent blue color */
+    font-weight: 500;
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+}
+
+.event-details p {
+    font-size: 1.2rem;
+    color: #e5e5e7; /* Light gray for description text */
+    font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+}
+
+.event-details ul {
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+    font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+}
+
+.event-details ul li {
+    font-size: 1.1rem;
+    margin: 6px 0;
+    color: #f2f2f7; /* Light color for event details */
+}
+
+.participation-message {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: #0a84ff; /* Accent message */
+    font-style: italic;
+}
+
+.participate-btn {
+    margin-top: 15px;
+    padding: 12px 24px;
+    background-color: #007aff; /* Apple blue */
+    color: white;
+    border: none;
+    border-radius: 12px; /* Rounded buttons */
+    cursor: pointer;
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(10, 132, 255, 0.4); /* Soft shadow */
+}
+
+.participate-btn:hover {
+    background-color: #005bbb; /* Darker blue on hover */
+    box-shadow: 0 6px 16px rgba(10, 132, 255, 0.6); /* Stronger hover shadow */
+}
+
+
+
     </style>
 </head>
 <body>
@@ -459,6 +565,64 @@
         </div>
     </div>
 </section>
+
+
+
+<!-- Events Section -->
+<section class="events">
+    <div class="container">
+        <h2>Our Upcoming Events</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="event">
+                    <img src="images/Community Cleanup Drive.jpg" alt="Community Cleanup Drive" class="event-image">
+                    <div class="event-details">
+                        <h3>Community Cleanup Drive</h3>
+                        <p>Join us in cleaning up our neighborhood to create a better environment.</p>
+                        <ul>
+                            <li><strong>Location:</strong> Colombo Central Park</li>
+                            <li><strong>Date & Time:</strong> 20th September, 9:00 AM - 12:00 PM</li>
+                            <li><strong>Bring:</strong> Gloves, Trash Bags, Water Bottle</li>
+                        </ul>
+                        <button class="participate-btn">"Together, We Build a Beautiful Earth!"</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="event">
+                    <img src="images/Tree Planting Day.png" alt="Tree Planting Day" class="event-image">
+                    <div class="event-details">
+                        <h3>Tree Planting Day</h3>
+                        <p>Help us plant trees and promote a greener Sri Lanka.</p>
+                        <ul>
+                            <li><strong>Location:</strong> Galle Fort Park</li>
+                            <li><strong>Date & Time:</strong> 25th September, 8:00 AM - 11:00 AM</li>
+                            <li><strong>Bring:</strong> Shovel, Seedlings, Water Bottle</li>
+                        </ul>
+                        <button class="participate-btn">"Join Hands to Help and Beautify Our Planet!"</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="event">
+                    <img src="images/Charity Fun Run.jpg" alt="Charity Fun Run" class="event-image">
+                    <div class="event-details">
+                        <h3>Charity Fun Run</h3>
+                        <p>Participate in a charity run to raise funds for the underprivileged.</p>
+                        <ul>
+                            <li><strong>Location:</strong> Negombo Beachfront</li>
+                            <li><strong>Date & Time:</strong> 30th September, 7:00 AM - 10:00 AM</li>
+                            <li><strong>Bring:</strong> Running Shoes, Energy Drinks, Sun Hat</li>
+                        </ul>
+                        <button class="participate-btn">"Join the Fun!"</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 
     <!-- Testimonials Section -->
