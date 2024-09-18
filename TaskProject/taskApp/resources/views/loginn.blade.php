@@ -6,44 +6,97 @@
     <title>Login & Registration</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Custom CSS -->
+    <!-- Custom CSS for Minimalist Design -->
     <style>
-        .auth-form {
-            background-color: #f9f9f9;
-            padding: 30px;
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .split-section {
+            background-color: #ffffff;
             border-radius: 10px;
+            display: flex;
+            width: 100%;
+            max-width: 900px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        .auth-form h5 {
-            text-align: center;
+        .left-section {
+            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            width: 40%;
+        }
+        .left-section h1 {
+            font-size: 28px;
             font-weight: bold;
             margin-bottom: 20px;
         }
-        .btn-google {
-            background-color: #dd4b39;
-            color: white;
+        .left-section p {
+            font-size: 16px;
         }
-        .btn-google:hover {
-            background-color: #c23321;
+        .right-section {
+            padding: 40px;
+            width: 60%;
         }
-        .btn-apple {
-            background-color: black;
-            color: white;
+        .auth-form {
+            width: 100%;
         }
-        .btn-apple:hover {
-            background-color: #333333;
+        .auth-form h5 {
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: normal;
         }
-        .btn i {
-            margin-right: 8px;
+        .btn-google, .btn-apple {
+            background-color: #f4f4f4;
+            color: black;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .btn-google img, .btn-apple img {
+            width: 20px;
+            margin-right: 10px;
+        }
+        .btn-google:hover, .btn-apple:hover {
+            background-color: #e0e0e0;
+        }
+        .form-control {
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
+    <div class="container">
+        <div class="split-section">
+            <!-- Left Section for Greeting Message -->
+            <div class="left-section">
+                <h1>Welcome Back!</h1>
+                <p>Login or Register to continue</p>
+            </div>
+
+            <!-- Right Section for Forms -->
+            <div class="right-section">
                 <ul class="nav nav-tabs" id="authTabs" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Login</button>
@@ -52,59 +105,51 @@
                         <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">Register</button>
                     </li>
                 </ul>
-                <div class="tab-content" id="authTabsContent">
+                <div class="tab-content auth-form" id="authTabsContent">
                     <!-- Login Form -->
-                    <div class="tab-pane fade show active auth-form" id="login" role="tabpanel">
+                    <div class="tab-pane fade show active" id="login" role="tabpanel">
                         <h5>Login</h5>
                         <form method="POST" action="{{ route('login') }}">
-                            @csrf
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" name="email" required autofocus>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email address" required>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             </div>
                             <button type="submit" class="btn btn-primary w-100 mb-2">Login</button>
                             <!-- Social Login Buttons -->
-                            <button type="button" class="btn btn-google w-100 mb-2">
-                                <i class="fab fa-google"></i>Login with Google
+                            <button class="btn btn-google">
+                                <img src="./images/google.webp" alt="Google Icon">Login with Google
                             </button>
-                            <button type="button" class="btn btn-apple w-100">
-                                <i class="fab fa-apple"></i>Login with Apple
+                            <button class="btn btn-apple">
+                                <img src="./images/apple.png" alt="Apple Icon">Login with Apple
                             </button>
                         </form>
                     </div>
 
                     <!-- Registration Form -->
-                    <div class="tab-pane fade auth-form" id="register" role="tabpanel">
+                    <div class="tab-pane fade" id="register" role="tabpanel">
                         <h5>Register</h5>
                         <form method="POST" action="{{ route('register') }}">
-                            @csrf
                             <div class="mb-3">
-                                <label for="name" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required autofocus>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email address" required>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             </div>
                             <div class="mb-3">
-                                <label for="password_confirmation" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" required>
                             </div>
                             <button type="submit" class="btn btn-success w-100 mb-2">Register</button>
                             <!-- Social Register Buttons -->
-                            <button type="button" class="btn btn-google w-100 mb-2">
-                                <i class="fab fa-google"></i>Register with Google
+                            <button class="btn btn-google">
+                                <img src="google-icon.png" alt="Google Icon">Register with Google
                             </button>
-                            <button type="button" class="btn btn-apple w-100">
-                                <i class="fab fa-apple"></i>Register with Apple
+                            <button class="btn btn-apple">
+                                <img src="apple-icon.png" alt="Apple Icon">Register with Apple
                             </button>
                         </form>
                     </div>
@@ -113,7 +158,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS (with Popper.js for tabs) -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
