@@ -828,12 +828,14 @@
             <div class="navbar-brand">
                 <a href="/"><i class="fas fa-users"></i> CommUnity</a>
             </div>
+            <!-- Navbar Links -->
             <div class="navbar-links">
                 <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
-                <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About Us</a>
+                <a class="nav-link" href="javascript:void(0);" onclick="slowScrollTo('.company-overview', 1000)"><i class="fas fa-info-circle"></i> About Us</a>
                 <a class="nav-link" href="#"><i class="fas fa-hand-holding-heart"></i> Opportunities</a>
                 <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact Us</a>
             </div>
+
         </nav>
     </header>
 
@@ -880,35 +882,32 @@
 
 
 
-
-<!-- Company Overview Section -->
-<section class="company-overview">
-    <div class="container">
-        <h2>About CommUnity</h2>
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <img src="images/cover-image - Copy.jpg" alt="Company Overview" class="img-fluid rounded">
-            </div>
-            <div class="col-md-6">
-                <p>
-                    At CommUnity, we believe in fostering a strong sense of togetherness by creating opportunities 
-                    for volunteers to collaborate on impactful projects that make a difference in society. Our goal 
-                    is to bridge the gap between individuals and meaningful causes that improve local communities.
-                </p>
-                <p>
-                    Founded in 2022, we have worked with thousands of volunteers who have contributed to various 
-                    initiatives, from education to environmental conservation. We are driven by the desire to create 
-                    a better tomorrow by uniting people for a common purpose.
-                </p>
-                <p>
-                    Join us and become part of a movement that empowers people to do more and be more for their communities.
-                </p>
+ <!-- Company Overview Section -->
+ <section id="company-overview" class="company-overview">
+        <div class="container">
+            <h2>About CommUnity</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="images/cover-image - Copy.jpg" alt="Company Overview" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        At CommUnity, we believe in fostering a strong sense of togetherness by creating opportunities 
+                        for volunteers to collaborate on impactful projects that make a difference in society. Our goal 
+                        is to bridge the gap between individuals and meaningful causes that improve local communities.
+                    </p>
+                    <p>
+                        Founded in 2022, we have worked with thousands of volunteers who have contributed to various 
+                        initiatives, from education to environmental conservation. We are driven by the desire to create 
+                        a better tomorrow by uniting people for a common purpose.
+                    </p>
+                    <p>
+                        Join us and become part of a movement that empowers people to do more and be more for their communities.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
 
 <!-- Events Section -->
 <section class="events">
@@ -1119,9 +1118,7 @@
 
 
 
-    </script>
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-image');
     const captionText = document.getElementById('modal-caption');
@@ -1151,7 +1148,49 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-</script>
+
+
+function slowScrollTo(target, duration) {
+            const targetElement = document.querySelector(target);
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+                window.scrollTo(0, startPosition + distance * progress);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        // Modal
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close-modal")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+    </script>
+
+
 
 </body>
 </html>
