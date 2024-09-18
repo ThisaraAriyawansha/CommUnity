@@ -42,6 +42,13 @@
             transition: background-color 0.3s ease-in-out;
         }
 
+        .navbar:hover {
+            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
+            transition: background-color 0.3s ease, transform 0.3s ease;  
+            transform: translateY(-3px); /* Subtle lift effect */
+        }
+        
+
         .navbar-brand a {
             font-size: 24px;
             color: white;
@@ -134,6 +141,7 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.3s ease;  
+
         }
 
         .hero-text button:hover {
@@ -159,51 +167,99 @@
         }
 
 
-           /* Feature Section */
-           .features {
-            background-color: white; /* Semi-transparent white */
-            padding: 4rem 0;
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-             }
-        .features h2 {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-        .feature {
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 2s ease-in-out;
-        }
-        .feature h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #007aff;
-        }
-        .feature p {
-            color: #555;
-        }
+        /* Styles for Features Section */
+.features {
+    padding: 80px 0;
+    background: #f0f4f8;
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif;
+    color: #333;
+}
 
-        /* Animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.features h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: #1d1d1f;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.features h2:hover {
+    color: #007bff;
+    transform: scale(1.05);
+}
+
+.features-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.feature-item {
+    flex: 1 1 300px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.2), -8px -8px 15px rgba(255, 255, 255, 0.9); /* Neumorphic effect */
+    text-align: center;
+    padding: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 12px 12px 25px rgba(0, 0, 0, 0.3), -12px -12px 25px rgba(255, 255, 255, 0.8);
+}
+
+.feature-icon {
+    font-size: 3.5rem;
+    color: #007bff;
+    margin-bottom: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    color: #005bbb;
+    transform: scale(1.1);
+}
+
+.feature-item h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #1d1d1f;
+    font-weight: 600;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.feature-item:hover p {
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .features-row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
         /* Testimonials Section */
         .testimonials {
@@ -480,29 +536,40 @@
     box-shadow: 0 6px 16px rgba(0, 122, 255, 0.3); /* Slightly stronger shadow */
 }
 
-
-/* Styles for Our Events Section */
+/* Enhanced Styles for Our Events Section */
 .events-section {
-    padding: 40px 0;
-    background-color: #f9f9f9;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f9f9f9 50%, #e0e0e0 50%);
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif;
+    color: #333;
 }
 
 .events-container {
-    width: 90%;
+    width: 85%;
     margin: 0 auto;
 }
 
 .events-section h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #1d1d1f;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.events-section h2:hover {
+    color: #005bbb;
+    transform: scale(1.05);
+    letter-spacing: 2px;
 }
 
 .events-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
 }
 
@@ -510,106 +577,133 @@
     flex: 1 1 300px;
     margin: 20px;
     text-align: center;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    padding: 20px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.event-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    background-color: #f0f8ff; /* Light blue background on hover */
 }
 
 .event-item h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
     color: #007bff;
+    font-weight: 600;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.event-item h3:hover {
+    color: #005bbb;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .event-item p {
     font-size: 1.2rem;
     margin-bottom: 20px;
-    color: #555;
+    color: #666;
+    line-height: 1.6;
 }
 
+/* Enhanced Photo Album Styles */
 .photo-album {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 .album-images {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
 }
 
 .album-image {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
     cursor: pointer;
     border: 2px solid #ddd;
-    border-radius: 8px;
+    border-radius: 16px;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .album-image:hover {
     border-color: #007bff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add subtle shadow on hover */
 }
 
-/* Modal Styles */
+/* Modern Modal Styles */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.8);
-    padding-top: 60px;
+    padding-top: 80px;
+    transition: opacity 0.3s ease;
 }
 
 .modal-content {
     position: relative;
     margin: auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 700px;
+    padding: 40px;
+    width: 90%;
+    max-width: 800px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 #modal-image {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 16px;
 }
 
 .close-modal {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 20px;
+    right: 20px;
     color: #fff;
-    font-size: 40px;
+    font-size: 36px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .close-modal:hover,
 .close-modal:focus {
     color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
+    transform: scale(1.1);
 }
 
 #modal-caption {
-    margin-top: 15px;
-    color: #fff;
+    margin-top: 20px;
+    color: #333;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
-
-
 
 
     </style>
@@ -642,32 +736,37 @@
     </section>
 
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2>Why Join Us?</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="feature">
-                        <h3><i class="fas fa-calendar-check"></i> Flexible Volunteering</h3>
-                        <p>Find opportunities that fit your schedule and make a difference.</p>
-                    </div>
+ <!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <h2>Why Join Us?</h2>
+        <div class="features-row">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-check"></i>
                 </div>
-                <div class="col-md-4">
-                    <div class="feature">
-                        <h3><i class="fas fa-users"></i> Strong Community</h3>
-                        <p>Be part of a supportive network dedicated to local impact.</p>
-                    </div>
+                <h3>Flexible Volunteering</h3>
+                <p>Find opportunities that fit your schedule and make a difference.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
                 </div>
-                <div class="col-md-4">
-                    <div class="feature">
-                        <h3><i class="fas fa-project-diagram"></i> Meaningful Projects</h3>
-                        <p>Work on projects that matter to you and your community.</p>
-                    </div>
+                <h3>Strong Community</h3>
+                <p>Be part of a supportive network dedicated to local impact.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-project-diagram"></i>
                 </div>
+                <h3>Meaningful Projects</h3>
+                <p>Work on projects that matter to you and your community.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
 
 
 <!-- Company Overview Section -->
@@ -757,7 +856,7 @@
 
 <section class="events-section">
     <div class="events-container">
-        <h2>We Did It!</h2>
+        <h2>"Success Achieved!"</h2>
         <div class="events-row">
             <!-- Event 1: Tree Planting Day -->
             <div class="event-item">
@@ -765,11 +864,12 @@
                 <p>Here's a glimpse of our successful Tree Planting Day event. Thanks to all the volunteers!</p>
                 <div class="photo-album">
                     <div class="album-images">
-                        <img src="images/spring-tree-planting-1080x1080.jpg" alt="Tree Planting Day 1" class="album-image" data-modal="tree-planting-modal">
-                        <img src="images/forestry-nurseries-bg.jpg" alt="Tree Planting Day 2" class="album-image" data-modal="tree-planting-modal">
-                        <img src="images/forestry-nurseries-bg.jpg" alt="Tree Planting Day 3" class="album-image" data-modal="tree-planting-modal">
-                        <img src="images/samanalawewa_01.jpg" alt="Tree Planting Day 4" class="album-image" data-modal="tree-planting-modal">
-                        <img src="images/omf-tree-planting.jpg" alt="Tree Planting Day 5" class="album-image" data-modal="tree-planting-modal">
+                    <img src="images/spring-tree-planting-1080x1080.jpg" alt="Volunteers planting trees during spring" class="album-image" data-modal="tree-planting-modal">
+                        <img src="images/forestry-nurseries-bg.jpg" alt="Forestry nursery with young saplings" class="album-image" data-modal="tree-planting-modal">
+                        <img src="images/Tree Panting campaign 4.jpg" alt="Group of people planting trees in a forest" class="album-image" data-modal="tree-planting-modal">
+                        <img src="images/samanalawewa_01.jpg" alt="Tree planting event in Samanalawewa" class="album-image" data-modal="tree-planting-modal">
+                        <img src="images/omf-tree-planting.jpg" alt="Community tree planting activity organized by CommUnity" class="album-image" data-modal="tree-planting-modal">
+
                     </div>
                 </div>
             </div>
@@ -780,11 +880,12 @@
                 <p>Our Beach Cleanup Drive was a big success. Thanks to everyone who came out to help keep our beaches clean!</p>
                 <div class="photo-album">
                     <div class="album-images">
-                        <img src="images/BeachCleanup1.jpg" alt="Beach Cleanup Day 1" class="album-image" data-modal="beach-cleanup-modal">
-                        <img src="images/BeachCleanup2.jpg" alt="Beach Cleanup Day 2" class="album-image" data-modal="beach-cleanup-modal">
-                        <img src="images/BeachCleanup3.jpg" alt="Beach Cleanup Day 3" class="album-image" data-modal="beach-cleanup-modal">
-                        <img src="images/BeachCleanup4.jpg" alt="Beach Cleanup Day 4" class="album-image" data-modal="beach-cleanup-modal">
-                        <img src="images/BeachCleanup5.jpg" alt="Beach Cleanup Day 5" class="album-image" data-modal="beach-cleanup-modal">
+                            <img src="images/premium_photo-1663039947303-0fad26f737b8.jpeg" alt="Volunteers collecting trash on a beach" class="album-image" data-modal="beach-cleanup-modal">
+                            <img src="images/MKT_2341-scaled.jpg" alt="Beach cleanup team working together" class="album-image" data-modal="beach-cleanup-modal">
+                            <img src="images/Reasons_Why_Beach_Clean-Ups_Important_1200x1200.webp" alt="Infographic on the importance of beach cleanups" class="album-image" data-modal="beach-cleanup-modal">
+                            <img src="images/how-to-organize-a-beach-clean-up-0.png" alt="Guide on organizing a beach cleanup event" class="album-image" data-modal="beach-cleanup-modal">
+                            <img src="images/299593ab-386d-41d4-bd8d-6f3018a0c512-TCN_COASTAL_CLEANUP07.webp" alt="Community involved in coastal cleanup activities" class="album-image" data-modal="beach-cleanup-modal">
+
                     </div>
                 </div>
             </div>
@@ -795,11 +896,11 @@
                 <p>Our Blood Donation Drive was a great success, helping many people in need. Thank you to all donors!</p>
                 <div class="photo-album">
                     <div class="album-images">
-                        <img src="images/BloodDonation1.jpg" alt="Blood Donation Day 1" class="album-image" data-modal="blood-donation-modal">
-                        <img src="images/BloodDonation2.jpg" alt="Blood Donation Day 2" class="album-image" data-modal="blood-donation-modal">
-                        <img src="images/BloodDonation3.jpg" alt="Blood Donation Day 3" class="album-image" data-modal="blood-donation-modal">
-                        <img src="images/BloodDonation4.jpg" alt="Blood Donation Day 4" class="album-image" data-modal="blood-donation-modal">
-                        <img src="images/BloodDonation5.jpg" alt="Blood Donation Day 5" class="album-image" data-modal="blood-donation-modal">
+                        <img src="images/Blood-Donation-Campaign-2019-1.jpg" alt="Blood Donation" class="album-image" data-modal="blood-donation-modal">
+                        <img src="images/Batticaloa_Blood_Donor_03.jpg" alt="Blood Donation Day" class="album-image" data-modal="blood-donation-modal">
+                        <img src="images/Blood-donor-inside-3.jpg" alt="Blood Donation Day" class="album-image" data-modal="blood-donation-modal">
+                        <img src="images/main_270_4875.jpg" alt="Blood Donation Day" class="album-image" data-modal="blood-donation-modal">
+                        <img src="images/2.jpg" alt="Blood Donation" class="album-image" data-modal="blood-donation-modal">
                     </div>
                 </div>
             </div>
@@ -815,6 +916,7 @@
         <div id="modal-caption"></div>
     </div>
 </div>
+
 
 
 
@@ -871,42 +973,8 @@
 
 
 
-
-        document.addEventListener('DOMContentLoaded', function () {
-    function setupAlbumNavigation(albumId) {
-        const album = document.getElementById(albumId);
-        const images = album.querySelectorAll('.album-image');
-        const totalImages = images.length;
-        const imageWidth = album.clientWidth;
-        let currentIndex = 0;
-
-        const updateImageDisplay = () => {
-            const offset = -currentIndex * imageWidth;
-            album.style.transform = `translateX(${offset}px)`;
-        };
-
-        document.querySelector(`[data-target="${albumId}-prev"]`).addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-            updateImageDisplay();
-        });
-
-        document.querySelector(`[data-target="${albumId}-next"]`).addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalImages;
-            updateImageDisplay();
-        });
-
-        // Initialize with the first image
-        updateImageDisplay();
-    }
-
-    // Initialize navigation for all albums
-    setupAlbumNavigation('tree-planting-album');
-    setupAlbumNavigation('beach-cleanup-album');
-    setupAlbumNavigation('blood-donation-album');
-});
     </script>
-
-<script>
+    <script>
 document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-image');
