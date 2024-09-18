@@ -844,7 +844,7 @@
         <div class="hero-text">
             <h1>Welcome to CommUnity</h1>
             <p>Bringing people together to create a better Sri Lanka.</p>
-            <a href="{{ route('login') }}">
+            <a href="/loginn">
     <button class="cta-button1">Get Involved</button>
 </a>
 

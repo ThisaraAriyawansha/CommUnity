@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Login & Registration</title>
+    <title>Login & Registration</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
     <style>
         .auth-form {
@@ -32,6 +34,9 @@
         }
         .btn-apple:hover {
             background-color: #333333;
+        }
+        .btn i {
+            margin-right: 8px;
         }
     </style>
 </head>
@@ -63,8 +68,12 @@
                             </div>
                             <button type="submit" class="btn btn-primary w-100 mb-2">Login</button>
                             <!-- Social Login Buttons -->
-                            <button type="button" class="btn btn-google w-100 mb-2">Login with Google</button>
-                            <button type="button" class="btn btn-apple w-100">Login with Apple</button>
+                            <button type="button" class="btn btn-google w-100 mb-2">
+                                <i class="fab fa-google"></i>Login with Google
+                            </button>
+                            <button type="button" class="btn btn-apple w-100">
+                                <i class="fab fa-apple"></i>Login with Apple
+                            </button>
                         </form>
                     </div>
 
@@ -91,8 +100,12 @@
                             </div>
                             <button type="submit" class="btn btn-success w-100 mb-2">Register</button>
                             <!-- Social Register Buttons -->
-                            <button type="button" class="btn btn-google w-100 mb-2">Register with Google</button>
-                            <button type="button" class="btn btn-apple w-100">Register with Apple</button>
+                            <button type="button" class="btn btn-google w-100 mb-2">
+                                <i class="fab fa-google"></i>Register with Google
+                            </button>
+                            <button type="button" class="btn btn-apple w-100">
+                                <i class="fab fa-apple"></i>Register with Apple
+                            </button>
                         </form>
                     </div>
                 </div>
