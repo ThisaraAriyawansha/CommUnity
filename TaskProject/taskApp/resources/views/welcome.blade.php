@@ -496,74 +496,119 @@
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #333;
 }
 
 .events-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 20px;
+    justify-content: center;
 }
 
 .event-item {
-    flex: 1 1 30%;
-    margin: 20px 0;
+    flex: 1 1 300px;
+    margin: 20px;
     text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
 }
 
 .event-item h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
+    color: #007bff;
 }
 
 .event-item p {
     font-size: 1.2rem;
     margin-bottom: 20px;
+    color: #555;
 }
 
 .photo-album {
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.album-navigation {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-}
-
-.nav-btn {
-    background-color: #007bff;
-    border: none;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1.5rem;
-}
-
-.nav-btn:hover {
-    background-color: #0056b3;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .album-images {
     display: flex;
-    transition: transform 0.5s ease;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
 .album-image {
-    max-width: 100%;
-    height: auto;
-    margin: 0 5px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
     border: 2px solid #ddd;
-    border-radius: 10px;
-    display: block;
+    border-radius: 8px;
 }
+
+.album-image:hover {
+    border-color: #007bff;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.8);
+    padding-top: 60px;
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+}
+
+#modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-caption {
+    margin-top: 15px;
+    color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
 
 
 
@@ -710,7 +755,6 @@
 </section>
 
 
-<!-- Our Events Section -->
 <section class="events-section">
     <div class="events-container">
         <h2>We Did It!</h2>
@@ -719,18 +763,13 @@
             <div class="event-item">
                 <h3>Tree Planting Day</h3>
                 <p>Here's a glimpse of our successful Tree Planting Day event. Thanks to all the volunteers!</p>
-                
                 <div class="photo-album">
-                    <div class="album-navigation">
-                        <button class="nav-btn" data-target="tree-planting-prev">&lt;</button>
-                        <button class="nav-btn" data-target="tree-planting-next">&gt;</button>
-                    </div>
-                    <div class="album-images" id="tree-planting-album">
-                        <img src="images/TreePlanting1.jpg" alt="Tree Planting Day 1" class="album-image">
-                        <img src="images/TreePlanting2.jpg" alt="Tree Planting Day 2" class="album-image">
-                        <img src="images/TreePlanting3.jpg" alt="Tree Planting Day 3" class="album-image">
-                        <img src="images/TreePlanting4.jpg" alt="Tree Planting Day 4" class="album-image">
-                        <img src="images/TreePlanting5.jpg" alt="Tree Planting Day 5" class="album-image">
+                    <div class="album-images">
+                        <img src="images/spring-tree-planting-1080x1080.jpg" alt="Tree Planting Day 1" class="album-image" data-modal="tree-planting-modal">
+                        <img src="images/forestry-nurseries-bg.jpg" alt="Tree Planting Day 2" class="album-image" data-modal="tree-planting-modal">
+                        <img src="images/forestry-nurseries-bg.jpg" alt="Tree Planting Day 3" class="album-image" data-modal="tree-planting-modal">
+                        <img src="images/samanalawewa_01.jpg" alt="Tree Planting Day 4" class="album-image" data-modal="tree-planting-modal">
+                        <img src="images/omf-tree-planting.jpg" alt="Tree Planting Day 5" class="album-image" data-modal="tree-planting-modal">
                     </div>
                 </div>
             </div>
@@ -739,18 +778,13 @@
             <div class="event-item">
                 <h3>Beach Cleanup Drive</h3>
                 <p>Our Beach Cleanup Drive was a big success. Thanks to everyone who came out to help keep our beaches clean!</p>
-                
                 <div class="photo-album">
-                    <div class="album-navigation">
-                        <button class="nav-btn" data-target="beach-cleanup-prev">&lt;</button>
-                        <button class="nav-btn" data-target="beach-cleanup-next">&gt;</button>
-                    </div>
-                    <div class="album-images" id="beach-cleanup-album">
-                        <img src="images/BeachCleanup1.jpg" alt="Beach Cleanup Day 1" class="album-image">
-                        <img src="images/BeachCleanup2.jpg" alt="Beach Cleanup Day 2" class="album-image">
-                        <img src="images/BeachCleanup3.jpg" alt="Beach Cleanup Day 3" class="album-image">
-                        <img src="images/BeachCleanup4.jpg" alt="Beach Cleanup Day 4" class="album-image">
-                        <img src="images/BeachCleanup5.jpg" alt="Beach Cleanup Day 5" class="album-image">
+                    <div class="album-images">
+                        <img src="images/BeachCleanup1.jpg" alt="Beach Cleanup Day 1" class="album-image" data-modal="beach-cleanup-modal">
+                        <img src="images/BeachCleanup2.jpg" alt="Beach Cleanup Day 2" class="album-image" data-modal="beach-cleanup-modal">
+                        <img src="images/BeachCleanup3.jpg" alt="Beach Cleanup Day 3" class="album-image" data-modal="beach-cleanup-modal">
+                        <img src="images/BeachCleanup4.jpg" alt="Beach Cleanup Day 4" class="album-image" data-modal="beach-cleanup-modal">
+                        <img src="images/BeachCleanup5.jpg" alt="Beach Cleanup Day 5" class="album-image" data-modal="beach-cleanup-modal">
                     </div>
                 </div>
             </div>
@@ -759,24 +793,29 @@
             <div class="event-item">
                 <h3>Blood Donation Drive</h3>
                 <p>Our Blood Donation Drive was a great success, helping many people in need. Thank you to all donors!</p>
-                
                 <div class="photo-album">
-                    <div class="album-navigation">
-                        <button class="nav-btn" data-target="blood-donation-prev">&lt;</button>
-                        <button class="nav-btn" data-target="blood-donation-next">&gt;</button>
-                    </div>
-                    <div class="album-images" id="blood-donation-album">
-                        <img src="images/BloodDonation1.jpg" alt="Blood Donation Day 1" class="album-image">
-                        <img src="images/BloodDonation2.jpg" alt="Blood Donation Day 2" class="album-image">
-                        <img src="images/BloodDonation3.jpg" alt="Blood Donation Day 3" class="album-image">
-                        <img src="images/BloodDonation4.jpg" alt="Blood Donation Day 4" class="album-image">
-                        <img src="images/BloodDonation5.jpg" alt="Blood Donation Day 5" class="album-image">
+                    <div class="album-images">
+                        <img src="images/BloodDonation1.jpg" alt="Blood Donation Day 1" class="album-image" data-modal="blood-donation-modal">
+                        <img src="images/BloodDonation2.jpg" alt="Blood Donation Day 2" class="album-image" data-modal="blood-donation-modal">
+                        <img src="images/BloodDonation3.jpg" alt="Blood Donation Day 3" class="album-image" data-modal="blood-donation-modal">
+                        <img src="images/BloodDonation4.jpg" alt="Blood Donation Day 4" class="album-image" data-modal="blood-donation-modal">
+                        <img src="images/BloodDonation5.jpg" alt="Blood Donation Day 5" class="album-image" data-modal="blood-donation-modal">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Modal Structure -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <div class="modal-content">
+        <img id="modal-image" src="" alt="Event Image">
+        <div id="modal-caption"></div>
+    </div>
+</div>
+
 
 
     <!-- Testimonials Section -->
@@ -834,22 +873,16 @@
 
 
         document.addEventListener('DOMContentLoaded', function () {
-    const albums = {
-        'tree-planting': document.getElementById('tree-planting-album'),
-        'beach-cleanup': document.getElementById('beach-cleanup-album'),
-        'blood-donation': document.getElementById('blood-donation-album')
-    };
-
     function setupAlbumNavigation(albumId) {
-        const album = albums[albumId];
+        const album = document.getElementById(albumId);
         const images = album.querySelectorAll('.album-image');
         const totalImages = images.length;
+        const imageWidth = album.clientWidth;
         let currentIndex = 0;
 
         const updateImageDisplay = () => {
-            images.forEach((img, index) => {
-                img.style.display = index === currentIndex ? 'block' : 'none';
-            });
+            const offset = -currentIndex * imageWidth;
+            album.style.transform = `translateX(${offset}px)`;
         };
 
         document.querySelector(`[data-target="${albumId}-prev"]`).addEventListener('click', () => {
@@ -867,10 +900,44 @@
     }
 
     // Initialize navigation for all albums
-    setupAlbumNavigation('tree-planting');
-    setupAlbumNavigation('beach-cleanup');
-    setupAlbumNavigation('blood-donation');
+    setupAlbumNavigation('tree-planting-album');
+    setupAlbumNavigation('beach-cleanup-album');
+    setupAlbumNavigation('blood-donation-album');
 });
     </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-image');
+    const captionText = document.getElementById('modal-caption');
+    const closeModal = document.querySelector('.close-modal');
+
+    function openModal(imgSrc, caption) {
+        modal.style.display = 'block';
+        modalImg.src = imgSrc;
+        captionText.innerHTML = caption;
+    }
+
+    function closeModalFunc() {
+        modal.style.display = 'none';
+    }
+
+    document.querySelectorAll('.album-image').forEach(img => {
+        img.addEventListener('click', function () {
+            openModal(this.src, this.alt);
+        });
+    });
+
+    closeModal.addEventListener('click', closeModalFunc);
+
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            closeModalFunc();
+        }
+    });
+});
+</script>
+
 </body>
 </html>
