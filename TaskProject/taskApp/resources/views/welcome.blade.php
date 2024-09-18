@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CommUnity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -261,49 +262,105 @@
     }
 }
 
-        /* Testimonials Section */
-        .testimonials {
-            background-color: #f5f5f7;
-            padding: 4rem 2rem; /* Increased padding */
-            text-align: center;
-        }
+/* Testimonials Section */
+.testimonials {
+    background: linear-gradient(135deg, #f5f5f7 0%, #e0e0e0 100%), url('path-to-your-background-image.jpg'); /* Add a background image */
+    background-size: cover;
+    padding: 4rem 2rem; /* Increased padding for spacing */
+    text-align: center;
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif;
+    position: relative;
+}
 
-        .testimonials h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            color: #333;
-        }
+.testimonials h2 {
+    font-size: 2.5rem;
+    font-weight: 700; /* Bolder font weight for emphasis */
+    margin-bottom: 2rem;
+    color: #222; /* Slightly darker color for better readability */
+    letter-spacing: 1px; /* Added letter spacing for modern touch */
+    text-transform: uppercase; /* Uppercase for modern styling */
+    position: relative;
+    padding-bottom: 1rem; /* Padding for decorative element */
+}
 
-        .testimonial {
-            padding: 2rem;
-            font-size: 1.2rem;
-            color: #555;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.testimonials h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #007bff; /* Accent color */
+    margin: 0 auto;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-        .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-        }
+.testimonials-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Added padding for responsiveness */
+}
 
-        .testimonial p {
-            font-style: italic;
-        }
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+    gap: 2rem; /* Added gap between testimonials */
+}
 
+.testimonial {
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #444; /* Darker text color for better contrast */
+    background: #ffffff;
+    border-radius: 15px; /* More rounded corners for a modern feel */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+    margin-bottom: 2rem; /* Increased bottom margin for spacing */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; /* Added background transition */
+    border: 1px solid #ddd; /* Subtle border for definition */
+    position: relative; /* Required for positioning pseudo-elements */
+}
 
-        /* Footer */
-        footer {
-            background-color: #2c2c2e;
-            color: #f5f5f7;
-            padding: 20px 0;
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
+.testimonial::before {
+    content: "\201C"; /* Unicode for left double quotation mark */
+    font-size: 4rem;
+    color: #007bff; /* Accent color */
+    position: absolute;
+    top: -1.5rem;
+    left: 1rem;
+    opacity: 0.5;
+}
+
+.testimonial:hover {
+    transform: translateY(-10px); /* More pronounced hover effect */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    background: #f9f9f9; /* Light background change on hover for subtle effect */
+}
+
+.testimonial p {
+    font-style: italic;
+    margin: 0; /* Remove default margin for better alignment */
+    line-height: 1.6; /* Improved line-height for readability */
+}
+
+.testimonial small {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #777; /* Slightly lighter color for the author */
+}
+
+.rating {
+    margin-top: 1rem;
+}
+
+.rating i {
+    color: #ffd700; /* Gold color for stars */
+    font-size: 1.2rem;
+    margin: 0 0.1rem;
+}
+
 
 
 
@@ -704,6 +761,61 @@
     text-align: center;
     font-size: 1.4rem;
 }
+/* Footer Styles */
+.footer {
+    background: white;
+    color:  linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
+    padding: 20px 0;
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer p {
+    color:#0c3b6d;
+    font-size: 1rem;
+    margin: 0;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.footer p:hover {
+    color: #007bff;
+}
+
+.social-media {
+    margin-top: 15px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color:#0c3b6d;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff;
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer p {
+        font-size: 0.9rem;
+    }
+
+    .social-icon {
+        font-size: 1.2rem;
+        margin: 0 8px;
+    }
+}
 
 
     </style>
@@ -920,37 +1032,71 @@
 
 
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2>What Our Volunteers Say</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="testimonial">
-                        <p>"Joining CommUnity was a life-changing experience. I met amazing people and contributed to meaningful causes."</p>
-                        <small>- Anjali S.</small>
-                    </div>
+<!-- Testimonials Section -->
+<section class="testimonials">
+    <div class="testimonials-wrapper">
+        <h2>What Our Volunteers Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <p>"Joining CommUnity was a life-changing experience. I met amazing people and contributed to meaningful causes."</p>
+                <small>- Anjali S., Community Leader</small>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="col-md-4">
-                    <div class="testimonial">
-                        <p>"The opportunities provided by CommUnity were flexible and aligned with my interests. It's a great platform for getting involved."</p>
-                        <small>- Priya M.</small>
-                    </div>
+            </div>
+            <div class="testimonial">
+                <p>"The opportunities provided by CommUnity were flexible and aligned with my interests. It's a great platform for getting involved."</p>
+                <small>- Priya M., Volunteer Coordinator</small>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                 </div>
-                <div class="col-md-4">
-                    <div class="testimonial">
-                        <p>"I love how CommUnity connects volunteers with projects that have a real impact. It’s fulfilling to see the difference we make."</p>
-                        <small>- Rajesh K.</small>
-                    </div>
+            </div>
+            <div class="testimonial">
+                <p>"I love how CommUnity connects volunteers with projects that have a real impact. It’s fulfilling to see the difference we make."</p>
+                <small>- Rajesh K., Project Manager</small>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
         <p>&copy; 2024 CommUnity. All rights reserved.</p>
-    </footer>
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="social-icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
 
 
 
