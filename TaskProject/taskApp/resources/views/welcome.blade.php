@@ -512,7 +512,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for a subtle effect */
     margin-bottom: 2rem;
     overflow: hidden;
-    border: 1px solid #005bbb; /* Dark blue borders */
+    border: 1px solid white; /* Dark blue borders */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -844,7 +844,10 @@
         <div class="hero-text">
             <h1>Welcome to CommUnity</h1>
             <p>Bringing people together to create a better Sri Lanka.</p>
-            <button class="cta-button1">Get Involved</button>
+            <a href="{{ route('login') }}">
+    <button class="cta-button1">Get Involved</button>
+</a>
+
         </div>
         <img id="myImage" src="images/together-people-love-icon-logo-community-black-circle-white-design-vector-removebg.png" alt="Placeholder Image">
     </section>
