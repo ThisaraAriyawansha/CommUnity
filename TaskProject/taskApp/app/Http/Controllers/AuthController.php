@@ -3,34 +3,54 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class AuthController extends Controller
 {
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('/')->with('success', 'Login successful!');
+        }
+
+        return redirect()->back()->withErrors(['email' => 'Invalid email or password.']);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register');
+    }
+
     public function register(Request $request)
     {
-        // Validate the form data
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
-        ]);
-        
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
-        
-
-        // Create a new user
-        User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed|min:8',
         ]);
 
-        // Redirect or show a success message
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        Auth::login($user);
+
         return redirect()->back()->with('success', 'Registration successful.');
     }
 }

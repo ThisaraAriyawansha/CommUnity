@@ -83,6 +83,10 @@
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
+        .form-control::placeholder {
+            color: #aaa;
+        }
+
         .form-control:focus {
             border-color: #003399;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -313,12 +317,10 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="mb-3">
-                            <label for="loginEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="loginEmail" name="email" required>
+                            <input type="email" class="form-control" id="loginEmail" name="email" placeholder="Email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="loginPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="loginPassword" name="password" required>
+                            <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Password" required>
                         </div>
                         <button type="submit" class="btn-custom">Login</button>
                     </form>
@@ -330,20 +332,16 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="mb-3">
-                            <label for="registerName" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="registerName" name="name" required>
+                            <input type="text" class="form-control" id="registerName" name="name" placeholder="Name" required>
                         </div>
                         <div class="mb-3">
-                            <label for="registerEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="registerEmail" name="email" required>
+                            <input type="email" class="form-control" id="registerEmail" name="email" placeholder="Email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="registerPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="registerPassword" name="password" required>
+                            <input type="password" class="form-control" id="registerPassword" name="password" placeholder="Password" required>
                         </div>
                         <div class="mb-3">
-                            <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="registerConfirmPassword" name="password_confirmation" required>
+                            <input type="password" class="form-control" id="registerConfirmPassword" name="password_confirmation" placeholder="Confirm Password" required>
                         </div>
                         <button type="submit" class="btn-custom">Register</button>
                     </form>
