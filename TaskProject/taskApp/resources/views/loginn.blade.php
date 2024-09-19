@@ -49,7 +49,6 @@
             transition: transform 0.4s ease;
         }
 
-
         .left-section h1 {
             font-size: 36px;
             font-weight: 600;
@@ -189,6 +188,65 @@
                 width: 100%;
             }
         }
+
+        /* Back button styling */
+        .btn-back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #fff;
+            border: 2px solid #003399;
+            padding: 8px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #003399;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: #003399;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Success Message Styling */
+        .success-alert {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .success-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .success-content ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .success-content li {
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .success-content li::before {
+            content: "✓";
+            color: #155724;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
     </style>
 </head>
 
@@ -197,6 +255,9 @@
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner"></div>
     </div>
+
+    <!-- Back Button -->
+    <button class="btn-back" onclick="goBack()">Back</button>
 
     <div class="container">
         <!-- Left Section -->
@@ -223,66 +284,88 @@
                 <div class="tab-pane fade show active" id="login">
                   <br/>
                     <h5>Login to your account</h5>
-                    <form method="POST" action="#">
-                        <div class="mb-4">
-                            <input type="email" class="form-control" id="login-email" placeholder="Email address" required>
+                    @if ($errors->any())
+    <div class="alert alert-danger custom-alert">
+        <div class="alert-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="alert-content">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+@endif
+@if (session('success'))
+    <div class="success-alert">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="success-content">
+            <ul>
+                <li>{{ session('success') }}</li>
+            </ul>
+        </div>
+    </div>
+@endif
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" name="email" required>
                         </div>
-                        <div class="mb-4">
-                            <input type="password" class="form-control" id="login-password" placeholder="Password" required>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" name="password" required>
                         </div>
-                        <button type="submit" class="btn-custom mb-3">Login</button>
-                        <button class="btn-social">
-                            <img src="./images/google.webp" alt="Google Icon">Login with Google
-                        </button>
+                        <button type="submit" class="btn-custom">Login</button>
                     </form>
                 </div>
 
                 <!-- Registration Form -->
-                <div class="tab-pane fade" id="register"><br/>
-                    <h5>Create a new account</h5>
-                    <form method="POST" action="#">
-                        <div class="mb-4">
-                            <input type="text" class="form-control" id="register-name" placeholder="Full Name" required>
+                <div class="tab-pane fade" id="register">
+                    <h5>Register a new account</h5>
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="registerName" name="name" required>
                         </div>
-                        <div class="mb-4">
-                            <input type="email" class="form-control" id="register-email" placeholder="Email address" required>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" name="email" required>
                         </div>
-                        <div class="mb-4">
-                            <input type="password" class="form-control" id="register-password" placeholder="Password" required>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" name="password" required>
                         </div>
-                        <div class="mb-4">
-                            <input type="password" class="form-control" id="register-password-confirm" placeholder="Confirm Password" required>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" name="password_confirmation" required>
                         </div>
-                        <button type="submit" class="btn-custom mb-3">Register</button>
-                        <button class="btn-social">
-                            <img src="./images/google.webp" alt="Google Icon">Sign up with Google
-                        </button>
+                        <button type="submit" class="btn-custom">Register</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Framer Motion JS for Animations -->
-    <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+    <!-- Custom JS -->
     <script>
-        // Hide loading overlay when page is fully loaded
-        window.addEventListener('load', function() {
-            document.getElementById('loadingOverlay').style.display = 'none';
-        });
+        function goBack() {
+            window.history.back();
+        }
 
-        // Example Framer Motion animation
-        document.querySelectorAll('.tab-pane').forEach((tabPane) => {
-            tabPane.addEventListener('show.bs.tab', () => {
-                tabPane.style.opacity = 0;
-                setTimeout(() => {
-                    tabPane.style.transition = 'opacity 0.5s ease';
-                    tabPane.style.opacity = 1;
-                }, 10);
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            // Simulate loading state removal after 2 seconds
+            setTimeout(function() {
+                loadingOverlay.style.display = 'none';
+            }, 2000);
         });
     </script>
 </body>

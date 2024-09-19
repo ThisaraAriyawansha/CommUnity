@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TaskController; // Import the controller
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\AuthController;
 
 // Task Routes
 Route::get('/tasks', [PageController::class, 'indextask']);
@@ -35,3 +36,8 @@ Route::get('auth/google/callback', [SocialiteController::class, 'handleGoogleCal
 
 Route::get('auth/apple', [SocialiteController::class, 'redirectToApple'])->name('auth.apple');
 Route::get('auth/apple/callback', [SocialiteController::class, 'handleAppleCallback']);
+
+
+
+
+Route::post('/register', [AuthController::class, 'register'])->name('register');
