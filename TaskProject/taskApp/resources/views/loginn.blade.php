@@ -37,17 +37,17 @@
         }
 
         .left-section {
-    background: linear-gradient(135deg, #003399 , #002266 );
-    color: white;
-    padding: 50px;
-    border-radius: 16px 0 0 16px;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.4s ease;
-}
+            background: linear-gradient(135deg, #003399 , #002266 );
+            color: white;
+            padding: 50px;
+            border-radius: 16px 0 0 16px;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.4s ease;
+        }
 
 
         .left-section h1 {
