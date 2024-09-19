@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/opportunities ', function () {
+    return view('opportunities');
+});
+
+
 // Login and Registration
 Route::get('/loginn', function () {
     return view('loginn');
