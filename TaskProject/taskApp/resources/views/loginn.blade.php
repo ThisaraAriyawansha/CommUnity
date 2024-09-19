@@ -221,6 +221,7 @@
             <div class="tab-content">
                 <!-- Login Form -->
                 <div class="tab-pane fade show active" id="login">
+                  <br/>
                     <h5>Login to your account</h5>
                     <form method="POST" action="#">
                         <div class="mb-4">
@@ -237,7 +238,7 @@
                 </div>
 
                 <!-- Registration Form -->
-                <div class="tab-pane fade" id="register">
+                <div class="tab-pane fade" id="register"><br/>
                     <h5>Create a new account</h5>
                     <form method="POST" action="#">
                         <div class="mb-4">
