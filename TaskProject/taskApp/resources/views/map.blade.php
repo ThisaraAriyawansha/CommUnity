@@ -47,7 +47,7 @@
     // Add markers for each opportunity
     opportunities.forEach(function(opportunity) {
         var marker = L.marker([opportunity.latitude, opportunity.longitude]).addTo(map);
-        marker.bindPopup(`<strong>${opportunity.name}</strong><br>${opportunity.details}`);
+        marker.bindPopup(`<strong>${opportunity.event_name}</strong><br>${opportunity.date} at ${opportunity.location}`);
     });
 </script>
 

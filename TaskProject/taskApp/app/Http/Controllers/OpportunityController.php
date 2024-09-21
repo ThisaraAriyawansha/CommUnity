@@ -32,7 +32,7 @@ class OpportunityController extends Controller
     {
         // Fetch saved opportunities from the database
         $opportunities = Opportunity::all(); // Ensure this line correctly fetches data
-    
+        
         return view('map', compact('opportunities')); // Pass the variable to the view
     }
     

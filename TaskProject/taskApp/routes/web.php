@@ -13,7 +13,7 @@ Route::post('/saveTasks', [TaskController::class, 'store']);
 Route::get('auth/google', [LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallback']);
 Route::post('/opportunities', [OpportunityController::class, 'store'])->name('opportunities.store');
-Route::get('/map', [OpportunityController::class, 'showMap'])->name('map');
+Route::get('/map', [OpportunityController::class, 'showMap'])->name('map.show');
 
 // Default Welcome Route
 Route::get('/', function () {
@@ -25,9 +25,6 @@ Route::get('/opportunities ', function () {
     return view('opportunities');
 });
 
-Route::get('/map', function () {
-    return view('map');
-});
 
 
 // Login and Registration
