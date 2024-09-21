@@ -819,14 +819,6 @@
     }
 }
 
-
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -842,7 +834,7 @@
                 <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
                 <a class="nav-link" href="javascript:void(0);" onclick="slowScrollTo('.company-overview', 1000)"><i class="fas fa-info-circle"></i> About Us</a>
                 <a class="nav-link" href="/map"><i class="fas fa-hand-holding-heart"></i> Opportunities</a>
-                <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a class="nav-link" href="/contactus"><i class="fas fa-envelope"></i> Contact Us</a>
             </div>
 
         </nav>

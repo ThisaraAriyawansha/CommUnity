@@ -25,6 +25,9 @@ Route::get('/opportunities ', function () {
     return view('opportunities');
 });
 
+Route::get('/contactus ', function () {
+    return view('contactus');
+});
 
 
 // Login and Registration
