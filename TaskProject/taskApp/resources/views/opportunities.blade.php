@@ -47,6 +47,8 @@ body {
 
  /* Navbar Styles */
  .navbar {
+    border-radius: 10px;
+
             position: fixed;
             top: 0;
             width: 100%;

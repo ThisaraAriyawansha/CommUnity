@@ -47,6 +47,8 @@
             background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
             transition: background-color 0.3s ease, transform 0.3s ease;  
             transform: translateY(-3px); /* Subtle lift effect */
+            border-radius: 10px;
+
         }
         
 
