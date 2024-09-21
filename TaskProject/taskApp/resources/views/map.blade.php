@@ -109,7 +109,7 @@
             padding: 30px 15px;
         }
         .hero {
-            background: linear-gradient(135deg, #007bff, #0056b3);
+            background: linear-gradient(135deg, #2a7dd5, #010e1d); /* Darker blue gradient on hover */
             color: white;
             border-radius: 10px;
             padding: 40px 20px;
