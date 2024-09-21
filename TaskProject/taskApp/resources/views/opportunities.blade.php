@@ -13,199 +13,235 @@
 
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Flatpickr CSS for Time Selection -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <!-- Custom CSS -->
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: #eef2f3;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            transition: opacity 1s ease-in-out;
-            color: #333;
-        }
+  /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #f7f9fc, #e2e9f0); /* Gradient background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition: all 0.3s ease-in-out;
+}
 
-        .fade-in {
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
 
-        .fade-in.visible {
-            opacity: 1;
-        }
+.fade-in.visible {
+    opacity: 1;
+}
 
-        /* Navbar Styles */
-        .navbar {
+ /* Navbar Styles */
+ .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 40px;
+            padding: 10px 20px;
             display: flex;
-            background: linear-gradient(135deg, #1d2b64, #2a2a72);
+            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
             color: white;
             z-index: 1000;
             align-items: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
         }
 
-        .navbar.scrolled {
-            background-color: #1d2b64;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        .navbar:hover {
+            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
+            transition: background-color 0.3s ease, transform 0.3s ease;  
+            transform: translateY(-3px); /* Subtle lift effect */
         }
+        
 
         .navbar-brand a {
-            font-size: 28px;
+            font-size: 24px;
             color: white;
             text-decoration: none;
             font-weight: bold;
-            letter-spacing: 1px;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .navbar-brand a:hover {
-            transform: scale(1.1);
-            color: #ffcb00;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         .navbar-links {
             display: flex;
-            gap: 20px;
+            gap: 10px;
             justify-content: flex-end;
             flex-grow: 1;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         .navbar-links a {
+            position: relative;
             color: white;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
-            position: relative;
+            font-size: 1em;
+            padding: 8px 15px;
+            overflow: hidden;
+            transition: color 0.3s ease;
         }
 
-        .navbar-links a::after {
+        .navbar-links a::before {
             content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: #ffcb00;
-            transition: width 0.3s ease;
             position: absolute;
-            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: -100%;
+            background-color: #ffffff;
+            transition: left 0.8s ease;
+        }
+
+        .navbar-links a:hover::before {
             left: 0;
         }
 
-        .navbar-links a:hover::after {
-            width: 100%;
-        }
-
         .navbar-links a:hover {
-            color: #ffcb00;
-            transform: scale(1.1);
+            color: #c0c0c0;
         }
 
-        /* Container Styles */
-        .container {
-            margin-top: 80px;
-            padding: 20px;
-            animation: slideUp 0.5s ease-out;
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
 
-        @keyframes slideUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+/* Container Styles */
+.container {
+    margin-top: 120px; /* Increased margin-top for more space below navbar */
+    padding: 40px; /* Increased padding for a spacious feel */
+    animation: slideUp 0.5s ease-out;
+    background: #fff;
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease-in-out;
+}
 
-        .form-group label {
-            font-weight: 500;
-            color: #555;
-        }
+.container:hover {
+    transform: translateY(-5px); /* Slightly less hover lift */
+}
 
-        .form-control {
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-            background: #f9f9f9;
-        }
+/* Form Styles */
+.form-group label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
 
-        .form-control:focus {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            border-color: #ffcb00;
-            outline: none;
-        }
+.form-control {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    padding: 12px 18px;
+    font-size: 15px;
+    background: #f5f5f5;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
 
-        /* Map Styles */
-        #map {
-            height: 400px;
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            background: #eeeeee;
-        }
+.form-control:focus {
+    box-shadow: 0 0 12px rgba(52, 152, 219, 0.4); /* Brighter focus shadow */
+    border-color: #3498db;
+    outline: none;
+}
 
-        #map:hover {
-            transform: scale(1.02);
-        }
+/* Map Styles */
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background: #e9ecef;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        /* Footer Styles */
-        .footer {
-            background: #1d2b64;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
-        }
+#map:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
-        .footer p {
-            margin: 0;
-            font-size: 1rem;
-            animation: fadeIn 1s ease-out;
-        }
+/* Footer Styles */
+.footer {
+    background: #f7f9fc;
+    color: #555;
+    padding: 5px 0; /* Decreased padding for a more compact look */
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 12px; /* Smaller font size for compactness */
+}
 
-        .social-icon {
-            display: inline-block;
-            margin: 0 15px;
-            font-size: 1.6rem;
-            color: white;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
+.footer p {
+    margin: 0;
+    animation: fadeIn 1s ease-out;
+}
 
-        .social-icon:hover {
-            color: #ffcb00;
-            transform: scale(1.3);
-        }
+.social-icon {
+    display: inline-block;
+    margin: 0 8px; /* Decreased margin for tighter spacing */
+    font-size: 1.5rem; /* Adjusted size for a more subtle look */
+    color: #555;
+    transition: color 0.4s ease, transform 0.4s ease;
+}
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .navbar-links {
-                flex-direction: column;
-                align-items: center;
-            }
+.social-icon:hover {
+    color: #3498db;
+    transform: scale(1.2); /* Slightly smaller scale for hover */
+}
 
-            .footer p {
-                font-size: 0.9rem;
-            }
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-links {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .social-icon {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
+    .container {
+        padding: 30px; /* Adjusted padding for smaller screens */
+    }
+
+    .footer p {
+        font-size: 10px; /* Even smaller font size for mobile */
+    }
+
+    .social-icon {
+        font-size: 1.4rem; /* Further adjusted size for mobile */
+    }
+}
+.modern-btn {
+    padding: 12px 24px; /* Comfortable padding */
+    background-color: transparent; /* Transparent background */
+    color: #3498db; /* Text color */
+    border: 2px solid #3498db; /* Border color matches text */
+    border-radius: 25px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Spacing for modern touch */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.modern-btn:hover {
+    background-color: #3498db; /* Background color on hover */
+    color: #fff; /* Change text color on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.modern-btn:active {
+    transform: translateY(0); /* Reset on click */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect on click */
+}
+
+
+</style>
+
 </head>
 <body class="fade-in">
 
@@ -239,9 +275,9 @@
         </div>
 
         <div class="form-group">
-            <label for="time">Time</label>
-            <input type="time" id="time" name="time" class="form-control" required>
-        </div>
+                <label for="time">Time</label>
+                <input type="text" id="time" name="time" class="form-control" required>
+            </div>
 
         <div class="form-group">
             <label for="location">Location</label>
@@ -255,8 +291,8 @@
             <input type="hidden" id="longitude" name="longitude">
         </div>
 
-        <button type="submit" class="btn btn-primary">Register</button>
-    </form>
+        <button type="submit" class="btn modern-btn">Register</button>
+        </form>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -338,6 +374,21 @@
         fadeInElement.classList.add('visible');
     });
 </script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+    // Initialize Flatpickr for Time Selection
+    flatpickr("#time", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
+        time_24hr: false // You can set this to false for 12-hour AM/PM format
+    });
+</script>
+<br>
 
 <footer class="footer">
     <p>&copy; 2024 CommUnity. All rights reserved.</p>
