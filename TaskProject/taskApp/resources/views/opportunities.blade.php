@@ -215,28 +215,34 @@ body {
         font-size: 1.4rem; /* Further adjusted size for mobile */
     }
 }
-.modern-btn {
+.unique-btn {
     padding: 12px 24px; /* Comfortable padding */
-    background-color: transparent; /* Transparent background */
-    color: #3498db; /* Text color */
-    border: 2px solid #3498db; /* Border color matches text */
-    border-radius: 25px; /* Rounded corners */
+    background: linear-gradient(90deg, #3498db, #9b59b6); /* Gradient background */
+    color: #fff; /* Text color */
+    border: none; /* No border */
+    border-radius: 30px; /* Fully rounded corners */
     font-size: 16px; /* Font size */
-    font-weight: 600; /* Bold text */
+    font-weight: 700; /* Bold text for emphasis */
     text-transform: uppercase; /* Uppercase text */
     letter-spacing: 1px; /* Spacing for modern touch */
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    cursor: pointer; /* Pointer cursor */
+    transition: all 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow */
 }
 
-.modern-btn:hover {
-    background-color: #3498db; /* Background color on hover */
-    color: #fff; /* Change text color on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+.unique-btn:hover {
+    transform: translateY(-3px); /* Slight lift effect */
+    background: linear-gradient(90deg, #2980b9, #8e44ad); /* Darker gradient on hover */
 }
 
-.modern-btn:active {
-    transform: translateY(0); /* Reset on click */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect on click */
+.unique-btn:active {
+    transform: translateY(1px); /* Slight drop effect on click */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adjusted shadow on click */
+}
+
+.unique-btn:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5); /* Custom focus outline */
 }
 
 
@@ -291,7 +297,7 @@ body {
             <input type="hidden" id="longitude" name="longitude">
         </div>
 
-        <button type="submit" class="btn modern-btn">Register</button>
+        <button type="submit" class="btn unique-btn">Register</button>
         </form>
 </div>
 
