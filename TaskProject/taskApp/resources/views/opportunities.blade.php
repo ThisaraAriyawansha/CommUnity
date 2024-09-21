@@ -17,6 +17,10 @@
 
     <!-- Flatpickr CSS for Time Selection -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Custom CSS -->
     <style>
@@ -259,7 +263,7 @@ body {
         <div class="navbar-links">
             <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
             <a class="nav-link" href="javascript:void(0);" onclick="slowScrollTo('.company-overview', 1000)"><i class="fas fa-info-circle"></i> About Us</a>
-            <a class="nav-link" href="#"><i class="fas fa-hand-holding-heart"></i> Opportunities</a>
+            <a class="nav-link" href="/map"><i class="fas fa-hand-holding-heart"></i> Opportunities</a>
             <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact Us</a>
         </div>
     </nav>
@@ -268,37 +272,33 @@ body {
 <div class="container">
     <h1 class="my-4">Register Opportunity</h1>
 
-    <form>
-        @csrf
-        <div class="form-group">
-            <label for="event_name">Event Name</label>
-            <input type="text" id="event_name" name="event_name" class="form-control" required>
-        </div>
+    <form action="{{ route('opportunities.store') }}" method="POST">
+    @csrf
+    <div class="form-group">
+        <label for="event_name">Event Name</label>
+        <input type="text" id="event_name" name="event_name" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="time">Time</label>
+        <input type="text" id="time" name="time" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="map">Map</label>
+        <div id="map"></div>
+        <input type="hidden" id="latitude" name="latitude">
+        <input type="hidden" id="longitude" name="longitude">
+    </div>
+    <button type="submit" class="btn unique-btn">Register</button>
+</form>
 
-        <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" id="date" name="date" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-                <label for="time">Time</label>
-                <input type="text" id="time" name="time" class="form-control" required>
-            </div>
-
-        <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" id="location" name="location" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label for="map">Map</label>
-            <div id="map"></div>
-            <input type="hidden" id="latitude" name="latitude">
-            <input type="hidden" id="longitude" name="longitude">
-        </div>
-
-        <button type="submit" class="btn unique-btn">Register</button>
-        </form>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -394,6 +394,52 @@ body {
         time_24hr: false // You can set this to false for 12-hour AM/PM format
     });
 </script>
+<script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Here you can use Fetch API or AJAX to send form data
+        const formData = new FormData(this);
+
+        fetch('{{ route('opportunities.store') }}', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}' // Include CSRF token
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Show success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Opportunity registered successfully!',
+                    confirmButtonText: 'Cool',
+                }).then(() => {
+                    // Optionally redirect or reset the form
+                    this.reset(); // Reset the form
+                });
+            } else {
+                // Handle errors
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops!',
+                    text: 'Something went wrong. Please try again.',
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops!',
+                text: 'Network error. Please check your connection.',
+            });
+        });
+    });
+</script>
+
 <br>
 
 <footer class="footer">

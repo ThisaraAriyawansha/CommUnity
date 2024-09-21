@@ -5,12 +5,15 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\TaskController; // Import the controller
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OpportunityController;
 
 // Task Routes
 Route::get('/tasks', [PageController::class, 'indextask']);
 Route::post('/saveTasks', [TaskController::class, 'store']);
 Route::get('auth/google', [LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallback']);
+Route::post('/opportunities', [OpportunityController::class, 'store'])->name('opportunities.store');
+Route::get('/map', [OpportunityController::class, 'showMap'])->name('map');
 
 // Default Welcome Route
 Route::get('/', function () {
@@ -20,6 +23,10 @@ Route::get('/', function () {
 
 Route::get('/opportunities ', function () {
     return view('opportunities');
+});
+
+Route::get('/map', function () {
+    return view('map');
 });
 
 
