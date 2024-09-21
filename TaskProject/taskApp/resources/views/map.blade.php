@@ -12,7 +12,7 @@
 
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Times New Roman', Times, serif;
             background: url("images/map.jpg") no-repeat center center fixed;
             background-size: cover;
             margin: 0;

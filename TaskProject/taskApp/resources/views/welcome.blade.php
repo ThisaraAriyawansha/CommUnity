@@ -766,8 +766,8 @@
 /* Footer Styles */
 .footer {
     background: white;
-    color:  linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
-    padding: 20px 0;
+    color: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
+    padding: 10px 0; /* Reduced padding for smaller height */
     font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, sans-serif;
     text-align: center;
 }
@@ -779,8 +779,8 @@
 }
 
 .footer p {
-    color:#0c3b6d;
-    font-size: 1rem;
+    color: #0c3b6d;
+    font-size: 0.85rem; /* Smaller font size */
     margin: 0;
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
@@ -791,14 +791,14 @@
 }
 
 .social-media {
-    margin-top: 15px;
+    margin-top: 10px; /* Reduced margin */
 }
 
 .social-icon {
     display: inline-block;
-    margin: 0 10px;
-    font-size: 1.5rem;
-    color:#0c3b6d;
+    margin: 0 8px; /* Reduced spacing between icons */
+    font-size: 1.2rem; /* Smaller icon size */
+    color: #0c3b6d;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -810,14 +810,21 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .footer p {
-        font-size: 0.9rem;
+        font-size: 0.75rem; /* Even smaller font for mobile */
     }
 
     .social-icon {
-        font-size: 1.2rem;
-        margin: 0 8px;
+        font-size: 1rem; /* Smaller icon size for mobile */
+        margin: 0 6px; /* Less margin for mobile */
     }
 }
+
+
+
+
+
+
+
 
 
     </style>
