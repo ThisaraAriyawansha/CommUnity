@@ -17,12 +17,13 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
+            background-color: #f9fafc;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            padding-top: 70px;
             min-height: 100vh;
-            padding: 20px;
+            color: #333;
         }
 
         /* Navbar Styles */
@@ -33,59 +34,36 @@
             width: 100%;
             padding: 10px 20px;
             display: flex;
-            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
+            background: #0c3b6d;
             color: white;
             z-index: 1000;
             align-items: center;
+            justify-content: space-between;
             transition: background-color 0.3s ease-in-out;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .navbar:hover {
-            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
-            transition: background-color 0.3s ease, transform 0.3s ease;  
-            transform: translateY(-3px);
-        }
-        
         .navbar-brand a {
             font-size: 24px;
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Times New Roman', serif;
         }
 
         .navbar-links {
             display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-            flex-grow: 1;
-            font-family: 'Times New Roman', Times, serif;
+            gap: 20px;
         }
 
         .navbar-links a {
-            position: relative;
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1rem;
             padding: 8px 15px;
-            overflow: hidden;
+            position: relative;
             transition: color 0.3s ease;
-        }
-
-        .navbar-links a::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: -100%;
-            background-color: #ffffff;
-            transition: left 0.8s ease;
-        }
-
-        .navbar-links a:hover::before {
-            left: 0;
         }
 
         .navbar-links a:hover {
@@ -94,12 +72,14 @@
 
         .contact-container {
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             padding: 40px;
             max-width: 600px;
             width: 100%;
             text-align: center;
+            margin-top: 40px;
+            animation: fadeInUp 0.5s ease;
         }
 
         h1 {
@@ -139,7 +119,7 @@
             width: 100%;
             padding: 15px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1rem;
             color: #333;
             outline: none;
@@ -149,6 +129,7 @@
         .input-group input:focus,
         .input-group textarea:focus {
             border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
         }
 
         .input-group label {
@@ -159,6 +140,9 @@
             font-size: 1rem;
             color: #aaa;
             transition: all 0.3s ease;
+            pointer-events: none;
+            background: white;
+            padding: 0 5px;
         }
 
         .input-group input:focus + label,
@@ -169,19 +153,12 @@
             left: 10px;
             font-size: 0.85rem;
             color: #3498db;
-            background-color: white;
-            padding: 0 5px;
-        }
-
-        .input-group textarea {
-            height: 120px;
-            resize: none;
         }
 
         .contact-form button {
             padding: 15px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             background-color: #3498db;
             color: white;
             font-size: 1.2rem;
@@ -193,34 +170,29 @@
             background-color: #2980b9;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
+        .list-unstyled {
+            text-align: left;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            color: #555;
+        }
 
-            .tagline {
-                font-size: 1rem;
-            }
-
-            .contact-form h2 {
-                font-size: 1.5rem;
-            }
+        .list-unstyled li {
+            margin-bottom: 10px;
         }
 
         /* Footer Styles */
         .footer {
             background: #f7f9fc;
             color: #555;
-            padding: 5px 0;
+            padding: 20px 0;
             text-align: center;
             width: 100%;
             box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-            font-size: 12px;
         }
 
         .footer p {
             margin: 0;
-            animation: fadeIn 1s ease-out;
         }
 
         .social-icon {
@@ -239,23 +211,50 @@
         @media (max-width: 768px) {
             .navbar-links {
                 flex-direction: column;
-                align-items: center;
+                gap: 10px;
             }
 
-            .container {
-                padding: 30px;
+            .contact-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .contact-form h2 {
+                font-size: 1.5rem;
             }
 
             .footer p {
-                font-size: 10px;
+                font-size: 12px;
             }
 
             .social-icon {
                 font-size: 1.4rem;
             }
         }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
+
+
+
+<body>
 <header>
     <nav class="navbar">
         <div class="navbar-brand">
@@ -269,8 +268,6 @@
         </div>
     </nav>
 </header>
-
-<body>
     <div class="contact-container">
         <h1>Welcome to CommUnity</h1>
         <p class="tagline">Bringing people together to create a better Sri Lanka.</p>
@@ -287,16 +284,16 @@
             <h2>Contact Us</h2>
             <form action="#">
                 <div class="input-group">
-                    <input type="text" name="name" required>
+                    <input type="text" name="name" required placeholder=" ">
                     <label for="name">Name</label>
                 </div>
                 <div class="input-group">
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" required placeholder=" ">
                     <label for="email">Email</label>
                 </div>
                 <div class="input-group">
-                    <textarea name="message" required></textarea>
-                    <label for="message">Your Message</label>
+                    <textarea name="message" rows="5" required placeholder=" "></textarea>
+                    <label for="message">Message</label>
                 </div>
                 <button type="submit">Send Message</button>
             </form>
@@ -304,13 +301,16 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2024 CommUnity | Follow us on:
-            <a href="https://facebook.com" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <p>&copy; 2024 CommUnity. All rights reserved.</p>
+        <div>
+            <a href="https://facebook.com" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
             <a href="https://instagram.com" class="social-icon"><i class="fab fa-instagram"></i></a>
-        </p>
+        </div>
     </footer>
 
-    </body>
-
+    <!-- Bootstrap and JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
