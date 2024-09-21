@@ -270,18 +270,40 @@
     }).addTo(map);
 
     // Create a marker and set its position to the center of the map
-    var marker = L.marker([7.8731, 80.7718]).addTo(map);
-    marker.bindPopup('<b>Your Location</b>').openPopup();
+    var marker = L.marker([7.8731, 80.7718], {draggable: true}).addTo(map);
 
-    // Update hidden inputs with coordinates
-    function updateCoordinates(lat, lng) {
-        document.getElementById('latitude').value = lat;
-        document.getElementById('longitude').value = lng;
+    // Function to perform reverse geocoding
+    function reverseGeocode(lat, lng) {
+        var url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                var location = data.display_name || "Location not found";
+                document.getElementById('location').value = location;
+            })
+            .catch(error => {
+                console.error('Error fetching location:', error);
+            });
     }
 
-    map.on('click', function(e) {
-        marker.setLatLng(e.latlng);
-        updateCoordinates(e.latlng.lat, e.latlng.lng);
+    // Event listener for marker drag
+    marker.on('dragend', function(event) {
+        var latlng = event.target.getLatLng();
+        document.getElementById('latitude').value = latlng.lat;
+        document.getElementById('longitude').value = latlng.lng;
+
+        // Reverse geocode to auto-fill location
+        reverseGeocode(latlng.lat, latlng.lng);
+    });
+
+    // Event listener for map click
+    map.on('click', function(event) {
+        marker.setLatLng(event.latlng);
+        document.getElementById('latitude').value = event.latlng.lat;
+        document.getElementById('longitude').value = event.latlng.lng;
+
+        // Reverse geocode to auto-fill location
+        reverseGeocode(event.latlng.lat, event.latlng.lng);
     });
     
     function slowScrollTo(selector, duration) {
