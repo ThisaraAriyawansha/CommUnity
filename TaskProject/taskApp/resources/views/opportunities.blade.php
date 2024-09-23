@@ -45,91 +45,91 @@ body {
     opacity: 1;
 }
 
- /* Navbar Styles */
- .navbar {
-    border-radius: 10px;
+        /* Navbar Styles */
+        .navbar {
+            border-radius: 10px;
 
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 10px 20px;
-            display: flex;
-            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
-            color: white;
-            z-index: 1000;
-            align-items: center;
-            transition: background-color 0.3s ease-in-out;
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    padding: 10px 20px;
+                    display: flex;
+                    background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
+                    color: white;
+                    z-index: 1000;
+                    align-items: center;
+                    transition: background-color 0.3s ease-in-out;
+                }
+
+                .navbar:hover {
+                    background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
+                    transition: background-color 0.3s ease, transform 0.3s ease;  
+                    transform: translateY(-3px); /* Subtle lift effect */
+                }
+                
+
+                .navbar-brand a {
+                    font-size: 24px;
+                    color: white;
+                    text-decoration: none;
+                    font-weight: bold;
+                    font-family: 'Times New Roman', Times, serif;
+                }
+
+                .navbar-links {
+                    display: flex;
+                    gap: 10px;
+                    justify-content: flex-end;
+                    flex-grow: 1;
+                    font-family: 'Times New Roman', Times, serif;
+                }
+
+                .navbar-links a {
+                    position: relative;
+                    color: white;
+                    text-decoration: none;
+                    font-weight: bold;
+                    font-size: 1em;
+                    padding: 8px 15px;
+                    overflow: hidden;
+                    transition: color 0.3s ease;
+                }
+
+                .navbar-links a::before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    bottom: 0;
+                    left: -100%;
+                    background-color: #ffffff;
+                    transition: left 0.8s ease;
+                }
+
+                .navbar-links a:hover::before {
+                    left: 0;
+                }
+
+                .navbar-links a:hover {
+                    color: #c0c0c0;
+                }
+
+
+        /* Container Styles */
+        .container {
+            margin-top: 120px; /* Increased margin-top for more space below navbar */
+            padding: 40px; /* Increased padding for a spacious feel */
+            animation: slideUp 0.5s ease-out;
+            background: #fff;
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s ease-in-out;
         }
 
-        .navbar:hover {
-            background: linear-gradient(135deg, #0c3b6d, #021a33, #010c17);
-            transition: background-color 0.3s ease, transform 0.3s ease;  
-            transform: translateY(-3px); /* Subtle lift effect */
-        }
-        
-
-        .navbar-brand a {
-            font-size: 24px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-            flex-grow: 1;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .navbar-links a {
-            position: relative;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-            padding: 8px 15px;
-            overflow: hidden;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-links a::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: -100%;
-            background-color: #ffffff;
-            transition: left 0.8s ease;
-        }
-
-        .navbar-links a:hover::before {
-            left: 0;
-        }
-
-        .navbar-links a:hover {
-            color: #c0c0c0;
-        }
-
-
-/* Container Styles */
-.container {
-    margin-top: 120px; /* Increased margin-top for more space below navbar */
-    padding: 40px; /* Increased padding for a spacious feel */
-    animation: slideUp 0.5s ease-out;
-    background: #fff;
-    border-radius: 15px; /* More rounded corners */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: transform 0.3s ease-in-out;
-}
-
-.container:hover {
+        .container:hover {
     transform: translateY(-5px); /* Slightly less hover lift */
 }
 
