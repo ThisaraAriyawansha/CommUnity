@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
     <style>
             body {
             font-family: 'Times New Roman', Times, serif;
@@ -236,35 +239,49 @@
         <h2>Contact Us</h2>
         <div class="container">
             <div class="row">
-                <!-- Contact Info -->
-                <div class="col-md-4">
-                    <div class="contact-info">
-                        <h4>Get in Touch</h4>
-                        <p><i class="fas fa-phone"></i> Phone: +117 321 111</p>
-                        <p><i class="fas fa-envelope"></i> Email: info@CommUnity.com</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Address: Colombo, Sri Lanka</p>
-                    </div>
-                </div>
+            <!-- Contact Info -->
+<div class="col-md-4">
+    <div class="contact-info">
+        <h4>Get in Touch</h4>
+        <p><i class="fas fa-phone"></i> Phone: +117 321 111</p>
+        <p><i class="fas fa-envelope"></i> Email: info@CommUnity.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Address: Colombo, Sri Lanka</p>
+    </div>
+</div>
 
-                <!-- Contact Form -->
-                <div class="col-md-8">
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea class="form-control" id="message" rows="5" placeholder="Enter your message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+@if(session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: "{{ session('success') }}", // Correctly escape quotes
+            confirmButtonText: 'Okay'
+        });
+    </script>
+@endif
+
+<!-- Contact Form -->
+<div class="col-md-8">
+    <form class="contact-form" method="POST" action="{{ route('contact.store') }}">
+        @csrf
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</div>
+
             </div>
+
 
             <!-- Map -->
             <div class="map-container" id="map"></div>
@@ -285,6 +302,9 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
     </script>
+    <!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <footer class="footer">
         <p>&copy; 2024 CommUnity. All rights reserved.</p>
         <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
