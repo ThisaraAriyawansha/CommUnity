@@ -11,8 +11,14 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Flatpickr CSS for Time Selection -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
     <style>
         body {
@@ -299,19 +305,28 @@
         <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
     </footer>
 
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Flatpickr JS for Time Selection -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
-        function initMap() {
-            var location = { lat: 5.955, lng: 80.547 }; // Coordinates for Matara, Sri Lanka
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
-                center: location
-            });
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                title: 'Welcome to Matara!'
-            });
-        }
+        // Initialize the map
+        var map = L.map('map').setView([5.955, 80.547], 13); // Coordinates for Matara, Sri Lanka
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Add a marker
+        L.marker([5.955, 80.547]).addTo(map)
+            .bindPopup('Welcome to Matara!')
+            .openPopup();
 
         // Form submission handling
         document.getElementById('contact-form').addEventListener('submit', function (e) {
