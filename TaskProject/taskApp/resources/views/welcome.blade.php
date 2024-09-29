@@ -840,7 +840,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section --> 
     <section class="heroo">
         <div class="hero-text">
             <h1>Welcome to CommUnity</h1>
